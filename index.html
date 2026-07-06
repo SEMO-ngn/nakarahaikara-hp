@@ -390,7 +390,11 @@ section{position:relative;}
 .menu-item.pork .ph{background-image:url("images/menu-pork.jpg"),
   radial-gradient(ellipse 55% 45% at 20% 10%, rgba(226,72,63,.34), transparent 60%),
   radial-gradient(ellipse 80% 70% at 85% 100%, rgba(107,19,28,.65), transparent 60%),
-  linear-gradient(150deg,#20120f,#0a0807 70%);}
+  linear-gradient(150deg,#20120f,#0a0807 70%);
+  background-position:50% 46%;}
+@media(max-width:600px){
+  .menu-item.pork .ph{background-position:50% 42%;}
+}
 .menu-item::before{content:""; position:absolute; inset:0; background:linear-gradient(0deg, rgba(5,4,3,.92) 0%, rgba(5,4,3,.15) 60%); z-index:1;}
 .menu-info{position:relative; z-index:2; padding:2rem 1.8rem;}
 .menu-tag{font-family:var(--pixel); font-size:.66rem; letter-spacing:.25em; color:var(--gold-soft); font-weight:400;}
