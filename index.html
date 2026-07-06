@@ -363,6 +363,7 @@ section{position:relative;}
 .kicker{
   font-family:var(--pixel); color:var(--red-glow); font-size:.85rem; letter-spacing:.15em; margin-bottom:.7rem; display:block;
 }
+.kicker::before{content:"► "; opacity:.85;}
 .h2{
   font-family:var(--pixel); font-weight:400; font-size:clamp(1.5rem,5vw,2.2rem); color:var(--white); line-height:1.55;
 }
@@ -807,11 +808,15 @@ section{position:relative;}
       </a>
     </div>
   </div>
-  <div class="scroll-cue"><span>SCROLL</span><span class="arrow">▼</span></div>
+  <div class="scroll-cue">
+    <span class="nakarakun-wrap"><img class="nakarakun nakarakun-sm" src="images/nakarakun-mascot.png" alt="ナカラくん" width="32" height="32" loading="lazy"></span>
+    <span>SCROLL</span><span class="arrow">▼</span>
+  </div>
 </section>
 
 <!-- ===================== Story ===================== -->
 <section class="section" id="story">
+  <div class="grain"></div>
   <div class="wrap">
     <div class="section-head reveal">
       <span class="kicker" data-i18n="story.kicker">ナカラハイカラ。とは</span>
@@ -874,6 +879,7 @@ section{position:relative;}
 
 <!-- ===================== 人気メニュー ===================== -->
 <section class="section section-dark" id="menu">
+  <div class="grain"></div>
   <div class="wrap">
     <div class="section-head reveal">
       <span class="kicker" data-i18n="menu.kicker">人気メニュー</span>
@@ -962,6 +968,7 @@ section{position:relative;}
 
 <!-- ===================== Instagram ===================== -->
 <section class="section section-dark" id="instagram">
+  <div class="grain"></div>
   <div class="wrap">
     <div class="insta-head reveal">
       <div>
@@ -1022,6 +1029,7 @@ section{position:relative;}
 
 <!-- ===================== 店舗情報 ===================== -->
 <section class="section section-dark" id="access">
+  <div class="grain"></div>
   <div class="wrap">
     <div class="section-head reveal">
       <span class="kicker" data-i18n="access.kicker">店舗情報</span>
@@ -1106,7 +1114,7 @@ section{position:relative;}
     <p class="msg reveal" data-i18n="footer.msg">その一言のために、今日もお店を開けています。<br>また帰ってきてください。</p>
     <span class="nakarakun-wrap reveal" style="margin-top:1.2rem;"><img class="nakarakun nakarakun-md nakarakun-wave" src="images/nakarakun-mascot.png" alt="ナカラくん" width="54" height="54" loading="lazy"></span>
 
-    <div class="footer-panel win reveal">
+    <div class="footer-panel win win-cursor reveal">
       <span class="win-tab">またね</span>
       <div class="footer-ctas">
         <a href="tel:08029472582" class="btn btn-primary" data-i18n="footer.callBtn">電話で予約する</a>
