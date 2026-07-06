@@ -238,18 +238,19 @@ section{position:relative;}
 .hero-bg{
   position:absolute; inset:-6% -6%; z-index:-2;
   background-image:
-    url("images/gyu-hohoyaki.jpg"),
+    url("images/hero-bg-izakaya-pixel.png"),
     linear-gradient(180deg, #140908 0%, #0b0807 55%, #050403 100%);
-  background-size:cover; background-position:48% 44%; background-repeat:no-repeat;
+  background-size:cover; background-position:56% 38%; background-repeat:no-repeat;
+  image-rendering:-webkit-optimize-contrast; image-rendering:crisp-edges;
   transform:translateY(var(--parallax,0));
   will-change:transform;
 }
 @media(max-width:600px){
-  .hero-bg{background-position:42% 38%;}
+  .hero-bg{background-position:60% 32%;}
 }
 .hero-bg::after{
   content:""; position:absolute; inset:0;
-  background:linear-gradient(180deg, rgba(5,4,3,.4) 0%, rgba(5,4,3,.48) 45%, rgba(5,4,3,.82) 100%);
+  background:linear-gradient(180deg, rgba(5,4,3,.32) 0%, rgba(5,4,3,.38) 45%, rgba(5,4,3,.8) 100%);
 }
 .hero-content{position:relative; z-index:2; width:100%;}
 .eyebrow{
