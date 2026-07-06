@@ -291,6 +291,7 @@ section{position:relative;}
 .btn-ghost:hover{background:var(--white); color:var(--black-deep); border-color:var(--white); box-shadow:0 0 24px rgba(247,243,232,.25);}
 .btn svg{width:18px; height:18px; flex:none;}
 .btn-disabled{opacity:.45; pointer-events:none; filter:grayscale(.4);}
+.is-hidden{display:none;}
 
 /* ===== Language switch ===== */
 .lang-switch{
@@ -853,7 +854,7 @@ section{position:relative;}
 </section>
 
 <!-- ===================== ドリンクチケット制 ===================== -->
-<section class="section ticket-section" id="ticket">
+<section class="section ticket-section is-hidden" id="ticket">
   <div class="grain"></div>
   <div class="wrap ticket-wrap">
     <div class="section-head reveal">
