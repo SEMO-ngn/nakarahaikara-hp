@@ -292,6 +292,25 @@ section{position:relative;}
 .btn svg{width:18px; height:18px; flex:none;}
 .btn-disabled{opacity:.45; pointer-events:none; filter:grayscale(.4);}
 
+/* ===== Language switch ===== */
+.lang-switch{
+  position:absolute; top:1.4rem; right:var(--gap); z-index:5;
+  display:flex; gap:.3rem; padding:.3rem;
+  background:rgba(10,8,7,.55); border:2px solid rgba(247,243,232,.4); border-radius:999px;
+  backdrop-filter:blur(6px);
+}
+.lang-btn{
+  font-family:var(--pixel); font-size:.62rem; letter-spacing:.03em; color:var(--cream-dim);
+  background:transparent; border:none; border-radius:999px; padding:.5rem .85rem;
+  transition:background .2s ease, color .2s ease;
+}
+.lang-btn.is-active{background:var(--white); color:var(--black-deep);}
+.lang-btn:not(.is-active):hover{color:var(--white);}
+@media(max-width:480px){
+  .lang-switch{top:1rem; right:calc(var(--gap) - .4rem); padding:.25rem;}
+  .lang-btn{padding:.42rem .6rem; font-size:.56rem;}
+}
+
 .scroll-cue{
   position:absolute; bottom:1.4rem; left:50%; transform:translateX(-50%); z-index:2;
   display:flex; flex-direction:column; align-items:center; gap:.4rem; color:var(--cream-dim); font-family:var(--pixel); font-size:.62rem; letter-spacing:.3em;
@@ -562,15 +581,15 @@ section{position:relative;}
 <nav class="nav-overlay" id="navOverlay">
   <div class="stars-bg"></div>
   <div class="nav-window win">
-    <span class="win-tab">コマンド</span>
+    <span class="win-tab" data-i18n="nav.tab">コマンド</span>
     <ul>
-      <li><a href="#home" class="nav-link">HOME<span class="sub">トップ</span></a></li>
-      <li><a href="#story" class="nav-link">STORY<span class="sub">ナカラハイカラ。とは</span></a></li>
-      <li><a href="#menu" class="nav-link">MENU<span class="sub">人気メニュー</span></a></li>
-      <li><a href="#ticket" class="nav-link">TICKET<span class="sub">ドリンクチケット</span></a></li>
-      <li><a href="#sports" class="nav-link">SPORTS<span class="sub">スポーツ観戦</span></a></li>
-      <li><a href="#instagram" class="nav-link">INSTAGRAM<span class="sub">最新の投稿</span></a></li>
-      <li><a href="#access" class="nav-link">ACCESS<span class="sub">店舗情報</span></a></li>
+      <li><a href="#home" class="nav-link">HOME<span class="sub" data-i18n="nav.sub.home">トップ</span></a></li>
+      <li><a href="#story" class="nav-link">STORY<span class="sub" data-i18n="nav.sub.story">ナカラハイカラ。とは</span></a></li>
+      <li><a href="#menu" class="nav-link">MENU<span class="sub" data-i18n="nav.sub.menu">人気メニュー</span></a></li>
+      <li><a href="#ticket" class="nav-link">TICKET<span class="sub" data-i18n="nav.sub.ticket">ドリンクチケット</span></a></li>
+      <li><a href="#sports" class="nav-link">SPORTS<span class="sub" data-i18n="nav.sub.sports">スポーツ観戦</span></a></li>
+      <li><a href="#instagram" class="nav-link">INSTAGRAM<span class="sub" data-i18n="nav.sub.instagram">最新の投稿</span></a></li>
+      <li><a href="#access" class="nav-link">ACCESS<span class="sub" data-i18n="nav.sub.access">店舗情報</span></a></li>
     </ul>
   </div>
 </nav>
@@ -709,21 +728,25 @@ section{position:relative;}
 <section class="hero" id="home">
   <div class="hero-bg" id="heroBg"></div>
   <div class="grain"></div>
+  <div class="lang-switch" id="langSwitch" role="group" aria-label="Language / 言語切り替え">
+    <button type="button" class="lang-btn" data-lang="ja">日本語</button>
+    <button type="button" class="lang-btn" data-lang="en">English</button>
+  </div>
   <div class="wrap hero-content reveal is-visible">
     <span class="eyebrow">MATSUMOTO / IZAKAYA</span>
-    <h1>酒、笑、<br><em>ここはおまえのばしょ。</em></h1>
-    <p class="lead"><b>今日も誰かが笑ってる。</b><br>
+    <h1 data-i18n="hero.title">酒、笑、<br><em>ここはおまえのばしょ。</em></h1>
+    <p class="lead" data-i18n="hero.lead"><b>今日も誰かが笑ってる。</b><br>
       美味しい酒と肉を囲み、初めて来ても、<br>
       気づけばまた帰ってきたくなる。<br>
       そんな居酒屋です。</p>
     <div class="hero-ctas">
       <a href="tel:08029472582" class="btn btn-primary">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.36 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        電話で予約する
+        <span data-i18n="cta.reserveCall">電話で予約する</span>
       </a>
       <a href="https://www.instagram.com/nakarahaikara" target="_blank" rel="noopener" class="btn btn-ghost">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-        Instagramを見る
+        <span data-i18n="cta.instagramView">Instagramを見る</span>
       </a>
     </div>
   </div>
@@ -734,31 +757,31 @@ section{position:relative;}
 <section class="section" id="story">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="kicker">ナカラハイカラ。とは</span>
-      <h2 class="h2">名前には、<br>ちょうどいい言い訳がある。</h2>
+      <span class="kicker" data-i18n="story.kicker">ナカラハイカラ。とは</span>
+      <h2 class="h2" data-i18n="story.title">名前には、<br>ちょうどいい言い訳がある。</h2>
     </div>
 
     <div class="story-grid">
       <div class="stamp win reveal reveal-delay-1">
-        <span class="win-tab">その1</span>
+        <span class="win-tab" data-i18n="story.tab1">その1</span>
         <span class="word-jp">なから</span>
         <span class="word-en">NAKARA / 信州弁</span>
-        <p>「<b>だいたい</b>」「<b>ある程度</b>」<br>という意味の、地元の言葉。</p>
+        <p data-i18n="story.p1">「<b>だいたい</b>」「<b>ある程度</b>」<br>という意味の、地元の言葉。</p>
       </div>
       <div class="story-plus reveal reveal-delay-2">×</div>
       <div class="stamp win reveal reveal-delay-3">
-        <span class="win-tab">その2</span>
+        <span class="win-tab" data-i18n="story.tab2">その2</span>
         <span class="word-jp">はいから</span>
         <span class="word-en">HAIKARA / 大正時代</span>
-        <p>「<b>おしゃれ</b>」<br>という意味で使われていた言葉。</p>
+        <p data-i18n="story.p2">「<b>おしゃれ</b>」<br>という意味で使われていた言葉。</p>
       </div>
     </div>
 
-    <p class="story-punch reveal">
+    <p class="story-punch reveal" data-i18n="story.punch">
       超うまい！ではないけど、<span>だいたい旨いし、なんだかおしゃれ。</span><br>
       肩の力を抜いて、楽しめる居酒屋。
     </p>
-    <p class="story-sub reveal">それが、ナカラハイカラ。</p>
+    <p class="story-sub reveal" data-i18n="story.sub">それが、ナカラハイカラ。</p>
   </div>
 </section>
 
@@ -768,25 +791,25 @@ section{position:relative;}
   <div class="grain"></div>
   <div class="wrap" style="position:relative;">
     <div class="section-head reveal">
-      <span class="kicker">こだわり</span>
-      <h2 class="h2">料理だけじゃない、<br>居場所のこだわり。</h2>
+      <span class="kicker" data-i18n="kodawari.kicker">こだわり</span>
+      <h2 class="h2" data-i18n="kodawari.title">料理だけじゃない、<br>居場所のこだわり。</h2>
     </div>
 
     <div class="card-grid">
       <div class="kcard win reveal reveal-delay-1">
         <span class="win-tab">01</span>
-        <h3>新鮮なお肉</h3>
-        <p>その日に仕入れた、信州の新鮮なお肉。普通の居酒屋では味わえない肉料理を、その日ごとに。</p>
+        <h3 data-i18n="kodawari.h3.1">新鮮なお肉</h3>
+        <p data-i18n="kodawari.p.1">その日に仕入れた、信州の新鮮なお肉。普通の居酒屋では味わえない肉料理を、その日ごとに。</p>
       </div>
       <div class="kcard win reveal reveal-delay-2">
         <span class="win-tab">02</span>
-        <h3>手作りドレッシング</h3>
-        <p>すべて手作り。ひと手間が、料理をさらに美味しくする。</p>
+        <h3 data-i18n="kodawari.h3.2">手作りドレッシング</h3>
+        <p data-i18n="kodawari.p.2">すべて手作り。ひと手間が、料理をさらに美味しくする。</p>
       </div>
       <div class="kcard win reveal reveal-delay-3">
         <span class="win-tab">03</span>
-        <h3>居場所</h3>
-        <p>「楽しかった。」そう言って帰ってもらえる空間づくりを、いちばん大切に。宴会や貸切のご相談もお気軽に。</p>
+        <h3 data-i18n="kodawari.h3.3">居場所</h3>
+        <p data-i18n="kodawari.p.3">「楽しかった。」そう言って帰ってもらえる空間づくりを、いちばん大切に。宴会や貸切のご相談もお気軽に。</p>
       </div>
     </div>
   </div>
@@ -796,8 +819,8 @@ section{position:relative;}
 <section class="section section-dark" id="menu">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="kicker">人気メニュー</span>
-      <h2 class="h2">写真じゃ、<br>この匂いは伝わらない。</h2>
+      <span class="kicker" data-i18n="menu.kicker">人気メニュー</span>
+      <h2 class="h2" data-i18n="menu.title">写真じゃ、<br>この匂いは伝わらない。</h2>
     </div>
   </div>
 
@@ -806,16 +829,16 @@ section{position:relative;}
       <div class="ph"></div>
       <div class="menu-info">
         <span class="menu-tag">SIGNATURE 01</span>
-        <h3>牛ホホ網焼き</h3>
-        <p>じっくり炙った牛ホホ肉。網の上でジュウジュウと音を立てる、いちばん人気の一皿。</p>
+        <h3 data-i18n="menu.beef.h3">牛ホホ網焼き</h3>
+        <p data-i18n="menu.beef.p">じっくり炙った牛ホホ肉。網の上でジュウジュウと音を立てる、いちばん人気の一皿。</p>
       </div>
     </div>
     <div class="menu-item pork reveal">
       <div class="ph"></div>
       <div class="menu-info">
         <span class="menu-tag">SIGNATURE 02</span>
-        <h3>信州ポーク鉄板焼き山盛り</h3>
-        <p>お肉屋さん直送の信州ポークを、鉄板の上に山盛りで。みんなでつつくのが、うちの流儀。</p>
+        <h3 data-i18n="menu.pork.h3">信州ポーク鉄板焼き山盛り</h3>
+        <p data-i18n="menu.pork.p">お肉屋さん直送の信州ポークを、鉄板の上に山盛りで。みんなでつつくのが、うちの流儀。</p>
       </div>
     </div>
   </div>
@@ -826,28 +849,28 @@ section{position:relative;}
   <div class="grain"></div>
   <div class="wrap ticket-wrap">
     <div class="section-head reveal">
-      <span class="kicker">ドリンクチケット制</span>
-      <h2 class="h2">ちょっとお得に、<br>もう一杯。</h2>
+      <span class="kicker" data-i18n="ticket.kicker">ドリンクチケット制</span>
+      <h2 class="h2" data-i18n="ticket.title">ちょっとお得に、<br>もう一杯。</h2>
     </div>
 
     <div class="ticket win reveal">
       <span class="win-tab">チケット</span>
       <div class="ticket-main">
-        <span class="ticket-badge">★ 人気の楽しみ方</span>
-        <h3>ナカラハイカラ。では、<br>人気のドリンクチケット制があります。</h3>
-        <p>仲間と分けてもよし。次回来店まで取っておいてもよし。有効期限なし、何度でもご来店時にお使いいただけます。</p>
+        <span class="ticket-badge" data-i18n="ticket.badge">★ 人気の楽しみ方</span>
+        <h3 data-i18n="ticket.h3">ナカラハイカラ。では、<br>人気のドリンクチケット制があります。</h3>
+        <p data-i18n="ticket.p">仲間と分けてもよし。次回来店まで取っておいてもよし。有効期限なし、何度でもご来店時にお使いいただけます。</p>
         <ul class="ticket-rules">
-          <li><span class="chip">チケット1枚</span> 基本ドリンク 1杯</li>
-          <li><span class="chip">チケット2枚</span> 生ビール 1杯</li>
+          <li><span class="chip" data-i18n="ticket.chip1">チケット1枚</span> <span data-i18n="ticket.rule1">基本ドリンク 1杯</span></li>
+          <li><span class="chip" data-i18n="ticket.chip2">チケット2枚</span> <span data-i18n="ticket.rule2">生ビール 1杯</span></li>
         </ul>
-        <p class="ticket-foot">「今日はもう一杯だけ」が言いやすくなる、<br>ナカラハイカラ。らしい楽しみ方です。</p>
+        <p class="ticket-foot" data-i18n="ticket.foot">「今日はもう一杯だけ」が言いやすくなる、<br>ナカラハイカラ。らしい楽しみ方です。</p>
       </div>
       <div class="ticket-stub">
         <span class="label">DRINK TICKET</span>
-        <div class="price"><sup>3枚つづり</sup>1,000<span class="yen">円</span></div>
-        <span class="sheets">1枚 = 基本ドリンク1杯</span>
+        <div class="price"><sup data-i18n="ticket.priceSup">3枚つづり</sup>1,000<span class="yen" data-i18n="ticket.yen">円</span></div>
+        <span class="sheets" data-i18n="ticket.sheets">1枚 = 基本ドリンク1杯</span>
         <div class="divider"></div>
-        <span class="note">生ビールはチケット<br><b style="color:var(--gold-soft);">2枚</b>で1杯</span>
+        <span class="note" data-i18n="ticket.note">生ビールはチケット<br><b style="color:var(--gold-soft);">2枚</b>で1杯</span>
       </div>
     </div>
   </div>
@@ -862,16 +885,16 @@ section{position:relative;}
       <span class="win-tab">CH.1</span>
       <div class="dot-row"><span></span><span></span><span></span></div>
     </div>
-    <span class="kicker reveal">スポーツ観戦</span>
-    <h2 class="h2 reveal">大画面で乾杯しよう。<br>プロジェクター、はじめました。</h2>
-    <p class="section-lead reveal">仲間と肩を組んで、初めましての人とハイタッチして。<br>
+    <span class="kicker reveal" data-i18n="sports.kicker">スポーツ観戦</span>
+    <h2 class="h2 reveal" data-i18n="sports.title">大画面で乾杯しよう。<br>プロジェクター、はじめました。</h2>
+    <p class="section-lead reveal" data-i18n="sports.lead">仲間と肩を組んで、初めましての人とハイタッチして。<br>
       「スポーツ観戦なら、ナカラハイカラ。」<br>そんな居酒屋を目指しています。</p>
     <div class="sports-badges reveal">
-      <span>⚽ サッカー</span>
-      <span>⚾ 野球</span>
-      <span>🏉 ラグビー</span>
-      <span>🥊 格闘技</span>
-      <span>📽️ プロジェクター完備</span>
+      <span data-i18n="sports.badge.soccer">⚽ サッカー</span>
+      <span data-i18n="sports.badge.baseball">⚾ 野球</span>
+      <span data-i18n="sports.badge.rugby">🏉 ラグビー</span>
+      <span data-i18n="sports.badge.combat">🥊 格闘技</span>
+      <span data-i18n="sports.badge.projector">📽️ プロジェクター完備</span>
     </div>
   </div>
 </section>
@@ -882,8 +905,8 @@ section{position:relative;}
     <div class="insta-head reveal">
       <div>
         <span class="kicker">Instagram</span>
-        <h2 class="h2" style="font-size:clamp(1.4rem,4.5vw,2rem);">「今日のうまい」は<br>ここで更新中。</h2>
-        <p style="color:var(--cream-dim); font-size:.85rem; margin-top:.7rem;">お店での一枚は <b style="color:var(--cream);">#ナカラハイカラ</b> をつけて投稿してね。</p>
+        <h2 class="h2" style="font-size:clamp(1.4rem,4.5vw,2rem);" data-i18n="insta.title">「今日のうまい」は<br>ここで更新中。</h2>
+        <p style="color:var(--cream-dim); font-size:.85rem; margin-top:.7rem;" data-i18n="insta.tagline">お店での一枚は <b style="color:var(--cream);">#ナカラハイカラ</b> をつけて投稿してね。</p>
       </div>
       <a href="https://www.instagram.com/nakarahaikara" target="_blank" rel="noopener" class="insta-follow">
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/></svg>
@@ -901,7 +924,7 @@ section{position:relative;}
     </div>
 
     <div class="insta-cta reveal">
-      <a href="https://www.instagram.com/nakarahaikara" target="_blank" rel="noopener" class="btn btn-primary">Instagramをもっと見る</a>
+      <a href="https://www.instagram.com/nakarahaikara" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="insta.cta">Instagramをもっと見る</a>
     </div>
   </div>
 </section>
@@ -912,7 +935,7 @@ section{position:relative;}
   <div class="grain"></div>
   <div class="wrap" style="position:relative;">
     <div class="review-panel win win-cursor reveal">
-      <span class="win-tab">口コミ</span>
+      <span class="win-tab" data-i18n="reviews.tab">口コミ</span>
       <div class="stars">
         <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6z"/></svg>
         <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6z"/></svg>
@@ -920,17 +943,17 @@ section{position:relative;}
         <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6z"/></svg>
         <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6z"/></svg>
       </div>
-      <h3>口コミでも、「また行きたい」の声。</h3>
-      <p>Googleビジネスプロフィールでは、お客様からのリアルな評価と口コミを公開しています。<br>気になる方はぜひチェックしてみてください。</p>
+      <h3 data-i18n="reviews.title">口コミでも、「また行きたい」の声。</h3>
+      <p data-i18n="reviews.lead">Googleビジネスプロフィールでは、お客様からのリアルな評価と口コミを公開しています。<br>気になる方はぜひチェックしてみてください。</p>
 
       <div class="review-quotes">
-        <div class="rq">「肩肘張らずに、気軽に飲みに行ける。友達を誘うならここ。」</div>
-        <div class="rq">「お肉が新鮮で、鉄板焼きが山盛りで大満足。また行きます。」</div>
+        <div class="rq" data-i18n="reviews.q1">「肩肘張らずに、気軽に飲みに行ける。友達を誘うならここ。」</div>
+        <div class="rq" data-i18n="reviews.q2">「お肉が新鮮で、鉄板焼きが山盛りで大満足。また行きます。」</div>
       </div>
 
       <a href="https://share.google/4W8EmArTZOvJthn2u" target="_blank" rel="noopener" class="btn btn-primary">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Googleの口コミを見る
+        <span data-i18n="reviews.cta">Googleの口コミを見る</span>
       </a>
     </div>
   </div>
@@ -940,8 +963,8 @@ section{position:relative;}
 <section class="section section-dark" id="access">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="kicker">店舗情報</span>
-      <h2 class="h2">今夜、ふらっと。</h2>
+      <span class="kicker" data-i18n="access.kicker">店舗情報</span>
+      <h2 class="h2" data-i18n="access.title">今夜、ふらっと。</h2>
     </div>
 
     <div class="access-grid">
@@ -952,7 +975,7 @@ section{position:relative;}
             <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
             <div>
               <span class="lbl">ADDRESS</span>
-              <a class="val" href="https://www.google.com/maps/search/?api=1&query=長野県松本市大手4-7-9+ナカラハイカラ" target="_blank" rel="noopener">〒390-0874<br>長野県松本市大手4-7-9</a>
+              <a class="val" href="https://www.google.com/maps/search/?api=1&query=長野県松本市大手4-7-9+ナカラハイカラ" target="_blank" rel="noopener" data-i18n="access.addressVal">〒390-0874<br>長野県松本市大手4-7-9</a>
             </div>
           </li>
           <li>
@@ -960,7 +983,7 @@ section{position:relative;}
             <div>
               <span class="lbl">TEL</span>
               <a class="val" href="tel:08029472582">080-2947-2582</a>
-              <span class="val-note">ご予約はお電話にて承っております。<br>LINE予約は準備中です。<br>営業時間外はInstagramのDMからもお気軽にご連絡ください。</span>
+              <span class="val-note" data-i18n="access.telNote">ご予約はお電話にて承っております。<br>LINE予約は準備中です。<br>営業時間外はInstagramのDMからもお気軽にご連絡ください。</span>
             </div>
           </li>
           <li>
@@ -968,31 +991,31 @@ section{position:relative;}
             <div>
               <span class="lbl">HOURS</span>
               <span class="val">17:00 〜 23:00</span>
-              <span class="val-note">状況により営業時間を延長する場合があります。詳しくはInstagramをご確認ください。</span>
+              <span class="val-note" data-i18n="access.hoursNote">状況により営業時間を延長する場合があります。詳しくはInstagramをご確認ください。</span>
             </div>
           </li>
           <li>
             <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span>
             <div>
               <span class="lbl">CLOSED</span>
-              <span class="val">木曜日定休（変更の場合あり）</span>
-              <span class="val-note">最新の定休日はInstagramをご確認ください。</span>
+              <span class="val" data-i18n="access.closedVal">木曜日定休（変更の場合あり）</span>
+              <span class="val-note" data-i18n="access.closedNote">最新の定休日はInstagramをご確認ください。</span>
             </div>
           </li>
           <li>
             <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21l1.9-5.7a8 8 0 1 1 3.8 3.8z"/></svg></span>
             <div>
               <span class="lbl">ACCESS</span>
-              <span class="val">松本城から徒歩8分</span>
-              <span class="val-note">松本駅からもアクセス良好です。</span>
+              <span class="val" data-i18n="access.accessVal">松本城から徒歩8分</span>
+              <span class="val-note" data-i18n="access.accessNote">松本駅からもアクセス良好です。</span>
             </div>
           </li>
         </ul>
 
         <div class="access-ctas">
-          <a href="tel:08029472582" class="btn btn-primary">電話をかける</a>
-          <a href="https://www.google.com/maps/search/?api=1&query=長野県松本市大手4-7-9+ナカラハイカラ" target="_blank" rel="noopener" class="btn btn-ghost">地図で見る</a>
-          <a href="#" class="btn btn-ghost btn-disabled" aria-disabled="true" tabindex="-1">LINE予約（準備中）</a>
+          <a href="tel:08029472582" class="btn btn-primary" data-i18n="access.callBtn">電話をかける</a>
+          <a href="https://www.google.com/maps/search/?api=1&query=長野県松本市大手4-7-9+ナカラハイカラ" target="_blank" rel="noopener" class="btn btn-ghost" data-i18n="access.mapBtn">地図で見る</a>
+          <a href="#" class="btn btn-ghost btn-disabled" aria-disabled="true" tabindex="-1" data-i18n="access.lineBtn">LINE予約（準備中）</a>
         </div>
       </div>
 
@@ -1012,16 +1035,16 @@ section{position:relative;}
   <div class="stars-bg"></div>
   <div class="grain"></div>
   <div class="wrap">
-    <p class="h1-echo reveal">酒、笑、<br><em>ここはお前の場所。</em></p>
-    <p class="thanks reveal">「楽しかった。」</p>
-    <p class="msg reveal">その一言のために、今日もお店を開けています。<br>また帰ってきてください。</p>
+    <p class="h1-echo reveal" data-i18n="footer.echo">酒、笑、<br><em>ここはお前の場所。</em></p>
+    <p class="thanks reveal" data-i18n="footer.thanks">「楽しかった。」</p>
+    <p class="msg reveal" data-i18n="footer.msg">その一言のために、今日もお店を開けています。<br>また帰ってきてください。</p>
 
     <div class="footer-panel win reveal">
       <span class="win-tab">またね</span>
       <div class="footer-ctas">
-        <a href="tel:08029472582" class="btn btn-primary">電話で予約する</a>
+        <a href="tel:08029472582" class="btn btn-primary" data-i18n="footer.callBtn">電話で予約する</a>
         <a href="https://www.instagram.com/nakarahaikara" target="_blank" rel="noopener" class="btn btn-ghost">Instagram</a>
-        <a href="#" class="btn btn-ghost btn-disabled" aria-disabled="true" tabindex="-1">LINE予約（準備中）</a>
+        <a href="#" class="btn btn-ghost btn-disabled" aria-disabled="true" tabindex="-1" data-i18n="footer.lineBtn">LINE予約（準備中）</a>
       </div>
 
       <div class="footer-social">
@@ -1038,8 +1061,8 @@ section{position:relative;}
     </div>
 
     <div class="footer-bottom">
-      <p>なから、はいから。長野県松本市大手4-7-9 — ナカラハイカラ。</p>
-      <p style="margin-top:.4rem;">&copy; <span id="year"></span> ナカラハイカラ。All rights reserved.</p>
+      <p data-i18n="footer.bottomP1">なから、はいから。長野県松本市大手4-7-9 — ナカラハイカラ。</p>
+      <p style="margin-top:.4rem;">&copy; <span id="year"></span> <span data-i18n="footer.copyright">ナカラハイカラ。All rights reserved.</span></p>
     </div>
   </div>
 </footer>
@@ -1048,7 +1071,7 @@ section{position:relative;}
 <div class="sticky-cta" id="stickyCta">
   <a href="tel:08029472582" class="btn btn-primary">
     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.36 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-    電話予約
+    <span data-i18n="sticky.call">電話予約</span>
   </a>
   <a href="https://www.instagram.com/nakarahaikara" target="_blank" rel="noopener" class="btn btn-ghost">
     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/></svg>
@@ -1105,6 +1128,133 @@ section{position:relative;}
     revealEls.forEach(function(el){ io.observe(el); });
   } else {
     revealEls.forEach(function(el){ el.classList.add('is-visible'); });
+  }
+
+  // ===== Language switch (ja / en) =====
+  var LANG_KEY = 'nakara-lang';
+  var i18nEls = document.querySelectorAll('[data-i18n]');
+  var I18N = { ja:{}, en:{} };
+
+  i18nEls.forEach(function(el){
+    I18N.ja[el.getAttribute('data-i18n')] = el.innerHTML;
+  });
+
+  I18N.en = {
+    'hero.title': 'Sake, laughter,<br><em>this is your place.</em>',
+    'hero.lead': '<b>Someone’s laughing here tonight.</b><br>\n      Good food, good drinks, and easy company —<br>\n      even first-timers find themselves<br>\n      wanting to come back to this little izakaya.',
+    'cta.reserveCall': 'Reserve by Phone',
+    'cta.instagramView': 'See Instagram',
+    'nav.tab': 'COMMAND',
+    'nav.sub.home': 'Top',
+    'nav.sub.story': 'Our Story',
+    'nav.sub.menu': 'Popular Dishes',
+    'nav.sub.ticket': 'Drink Tickets',
+    'nav.sub.sports': 'Sports Viewing',
+    'nav.sub.instagram': 'Latest Posts',
+    'nav.sub.access': 'Visit Us',
+    'story.kicker': 'What’s a “Nakara Haikara”?',
+    'story.title': 'Every name<br>needs a good excuse.',
+    'story.tab1': 'Part 1',
+    'story.p1': 'A local Nagano dialect word meaning “<b>roughly</b>” or “<b>more or less</b>.”',
+    'story.tab2': 'Part 2',
+    'story.p2': 'An old word from the 1920s meaning “<b>stylish</b>.”',
+    'story.punch': '\n      Not the best meal of your life — <span>just good food, and a little bit of style.</span><br>\n      A Japanese pub where you can loosen up and just enjoy yourself.\n    ',
+    'story.sub': 'That’s Nakara Haikara.',
+    'kodawari.kicker': 'What We Care About',
+    'kodawari.title': 'It’s not just the food —<br>it’s the feeling of belonging.',
+    'kodawari.h3.1': 'Fresh Meat, Daily',
+    'kodawari.p.1': 'Fresh, local Shinshu meat sourced every day — local food you won’t find at your average izakaya, always changing with what’s good that day.',
+    'kodawari.h3.2': 'Homemade Dressing',
+    'kodawari.p.2': 'Everything made from scratch. That extra bit of effort makes the food taste even better.',
+    'kodawari.h3.3': 'A Place to Belong',
+    'kodawari.p.3': 'Nothing matters more to us than hearing “that was fun” on your way out. Ask us anytime about parties or private bookings.',
+    'menu.kicker': 'Popular Dishes',
+    'menu.title': 'No photo can capture<br>the smell of this place.',
+    'menu.beef.h3': 'Grilled Beef Cheek',
+    'menu.beef.p': 'Slow-grilled beef cheek, sizzling right on the grate. Our most popular dish, hands down.',
+    'menu.pork.h3': 'Shinshu Pork Hot Plate, Piled High',
+    'menu.pork.p': 'Shinshu pork straight from the butcher, piled high on a sizzling hot plate. Sharing it with everyone — that’s our way.',
+    'ticket.kicker': 'Drink Ticket System',
+    'ticket.title': 'A little more,<br>for a little less.',
+    'ticket.badge': '★ A Local Favorite',
+    'ticket.h3': 'At Nakara Haikara, we run<br>a popular drink ticket system.',
+    'ticket.p': 'Share them with friends, or save them for next time. No expiration — use them whenever you come back.',
+    'ticket.chip1': '1 Ticket',
+    'ticket.rule1': '= 1 standard drink',
+    'ticket.chip2': '2 Tickets',
+    'ticket.rule2': '= 1 draft beer',
+    'ticket.foot': 'Makes it easy to say “just one more round” —<br>that’s the Nakara Haikara way.',
+    'ticket.priceSup': 'Set of 3',
+    'ticket.yen': 'yen',
+    'ticket.sheets': '1 ticket = 1 standard drink',
+    'ticket.note': 'Draft beer needs<br><b style="color:var(--gold-soft);">2 tickets</b> per glass',
+    'sports.kicker': 'Sports Viewing',
+    'sports.title': 'Raise a glass to the big screen.<br>Now with projector viewing.',
+    'sports.lead': 'Arm in arm with your friends, high-fiving people you just met.<br>\n      “For sports and a good time — Nakara Haikara.”<br>That’s the izakaya we’re building.',
+    'sports.badge.soccer': '⚽ Soccer',
+    'sports.badge.baseball': '⚾ Baseball',
+    'sports.badge.rugby': '🏉 Rugby',
+    'sports.badge.combat': '🥊 Combat Sports',
+    'sports.badge.projector': '📽️ Projector Screen',
+    'insta.title': '“Today’s good stuff”<br>updated right here.',
+    'insta.tagline': 'Tag your photos <b style="color:var(--cream);">#ナカラハイカラ</b> when you visit.',
+    'insta.cta': 'See More on Instagram',
+    'reviews.tab': 'Reviews',
+    'reviews.title': 'Our reviews say it too: “I want to go back.”',
+    'reviews.lead': 'Real reviews from real guests, right on our Google Business Profile.<br>Take a look if you’re curious.',
+    'reviews.q1': '“No pressure, just an easy night out. This is the place to bring your friends.”',
+    'reviews.q2': '“The meat’s so fresh, and the hot plate comes piled high. Totally satisfied — I’ll be back.”',
+    'reviews.cta': 'Read Reviews on Google',
+    'access.kicker': 'Find Our Izakaya',
+    'access.title': 'Drop by tonight.',
+    'access.addressVal': '〒390-0874<br>4-7-9 Ote, Matsumoto, Nagano, Japan',
+    'access.telNote': 'Reservations are currently by phone only (Japanese language).<br>LINE booking is coming soon.<br>Outside business hours, feel free to reach us via Instagram DM.',
+    'access.hoursNote': 'Hours may run later some nights — check Instagram for details.',
+    'access.closedVal': 'Closed on Thursdays (subject to change)',
+    'access.closedNote': 'Check Instagram for the latest holiday schedule.',
+    'access.accessVal': '8 min walk from Matsumoto Castle',
+    'access.accessNote': 'Also an easy walk from Matsumoto Station.',
+    'access.callBtn': 'Call Us',
+    'access.mapBtn': 'View Map',
+    'access.lineBtn': 'LINE Reservation (Coming Soon)',
+    'footer.echo': 'Sake, laughter,<br><em>this is your place.</em>',
+    'footer.thanks': '“That was fun.”',
+    'footer.msg': 'That’s the one line we stay open for, every night.<br>Come back and see us again.',
+    'footer.callBtn': 'Reserve by Phone',
+    'footer.lineBtn': 'LINE Reservation (Coming Soon)',
+    'footer.bottomP1': 'Nakara, Haikara. 4-7-9 Ote, Matsumoto, Nagano — Nakara Haikara.',
+    'footer.copyright': 'Nakara Haikara. All rights reserved.',
+    'sticky.call': 'Call'
+  };
+
+  var langSwitch = document.getElementById('langSwitch');
+
+  function applyLang(lang){
+    var dict = I18N[lang] || I18N.ja;
+    i18nEls.forEach(function(el){
+      var key = el.getAttribute('data-i18n');
+      if(dict[key] != null){ el.innerHTML = dict[key]; }
+    });
+    document.documentElement.lang = lang;
+    if(langSwitch){
+      langSwitch.querySelectorAll('.lang-btn').forEach(function(btn){
+        btn.classList.toggle('is-active', btn.getAttribute('data-lang') === lang);
+      });
+    }
+  }
+
+  var savedLang = null;
+  try{ savedLang = localStorage.getItem(LANG_KEY); }catch(err){}
+  applyLang(savedLang === 'en' ? 'en' : 'ja');
+
+  if(langSwitch){
+    langSwitch.addEventListener('click', function(e){
+      var btn = e.target.closest('.lang-btn');
+      if(!btn) return;
+      var lang = btn.getAttribute('data-lang');
+      applyLang(lang);
+      try{ localStorage.setItem(LANG_KEY, lang); }catch(err){}
+    });
   }
 })();
 </script>
