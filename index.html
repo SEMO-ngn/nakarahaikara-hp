@@ -293,6 +293,41 @@ section{position:relative;}
 .btn-disabled{opacity:.45; pointer-events:none; filter:grayscale(.4);}
 .is-hidden{display:none;}
 
+/* ===== Nakarakun mascot component ===== */
+.nakarakun-wrap{display:inline-block; flex:none; transition:transform .25s ease;}
+.nakarakun-wrap:hover{transform:scale(1.12);}
+.nakarakun{
+  display:block; width:100%; height:100%; box-sizing:border-box;
+  border-radius:50%; object-fit:contain; object-position:center;
+  background:var(--red); border:2px solid var(--white); padding:.2em;
+  animation:nakarakunFloat 3.2s ease-in-out infinite;
+}
+.nakarakun-wave{animation:nakarakunWave 2.6s ease-in-out infinite;}
+@keyframes nakarakunFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-3px);}}
+@keyframes nakarakunWave{0%,100%{transform:translateY(0) rotate(0deg);}25%{transform:translateY(-3px) rotate(-6deg);}75%{transform:translateY(-3px) rotate(6deg);}}
+@media(prefers-reduced-motion:reduce){.nakarakun{animation:none;}}
+.nakarakun-sm{width:32px; height:32px;}
+.nakarakun-md{width:54px; height:54px;}
+.nakarakun-lg{width:80px; height:80px;}
+
+.mascot-bubble{display:flex; align-items:center; gap:.6rem;}
+.mascot-bubble .bubble-text{
+  position:relative; background:var(--white); color:var(--black-deep);
+  font-family:var(--pixel); font-size:.64rem; line-height:1.5; letter-spacing:.01em;
+  padding:.55rem .85rem; border-radius:14px; max-width:13em;
+  box-shadow:0 6px 16px rgba(0,0,0,.35);
+}
+.mascot-bubble .bubble-text::after{
+  content:""; position:absolute; left:-6px; top:50%; transform:translateY(-50%);
+  border:6px solid transparent; border-right-color:var(--white);
+}
+.mascot-bubble-menu{position:absolute; top:1rem; right:1rem; z-index:3;}
+@media(max-width:480px){
+  .mascot-bubble-menu{top:.7rem; right:.7rem;}
+  .mascot-bubble-menu .bubble-text{font-size:.58rem; padding:.45rem .7rem; max-width:9em;}
+}
+.mascot-bubble-access{margin:1.6rem 0 0;}
+
 /* ===== Language switch ===== */
 .lang-switch{
   position:absolute; top:1.4rem; right:var(--gap); z-index:5;
@@ -583,7 +618,10 @@ section{position:relative;}
 
 <!-- ===================== Header ===================== -->
 <header class="site-header" id="siteHeader">
-  <a href="#home" class="logo">酒<span>&</span>笑 <span style="margin-left:.3em;">ナカラハイカラ。</span></a>
+  <a href="#home" class="logo">
+    <span class="nakarakun-wrap"><img class="nakarakun nakarakun-sm" src="images/nakarakun-mascot.png" alt="ナカラくん" width="32" height="32" loading="eager"></span>
+    酒<span>&</span>笑 <span style="margin-left:.3em;">ナカラハイカラ。</span>
+  </a>
   <button class="menu-btn" id="menuBtn" aria-label="メニューを開く"><span></span><span></span><span></span></button>
 </header>
 
@@ -838,6 +876,10 @@ section{position:relative;}
   <div class="wrap" style="margin-top:2.4rem;">
     <div class="menu-item beef reveal">
       <div class="ph"></div>
+      <div class="mascot-bubble mascot-bubble-menu">
+        <span class="nakarakun-wrap"><img class="nakarakun nakarakun-sm" src="images/nakarakun-mascot.png" alt="ナカラくん" width="32" height="32" loading="lazy"></span>
+        <span class="bubble-text" data-i18n="mascot.menuPick">ナカラくんの<br>おすすめ！</span>
+      </div>
       <div class="menu-info">
         <span class="menu-tag">SIGNATURE 01</span>
         <h3 data-i18n="menu.beef.h3">牛ホホ網焼き</h3>
@@ -1023,6 +1065,11 @@ section{position:relative;}
           </li>
         </ul>
 
+        <div class="mascot-bubble mascot-bubble-access reveal">
+          <span class="nakarakun-wrap"><img class="nakarakun nakarakun-sm" src="images/nakarakun-mascot.png" alt="ナカラくん" width="32" height="32" loading="lazy"></span>
+          <span class="bubble-text" data-i18n="mascot.reservePick">ご予約<br>お待ちしています！</span>
+        </div>
+
         <div class="access-ctas">
           <a href="tel:08029472582" class="btn btn-primary" data-i18n="access.callBtn">電話をかける</a>
           <a href="https://www.google.com/maps/search/?api=1&query=長野県松本市大手4-7-9+ナカラハイカラ" target="_blank" rel="noopener" class="btn btn-ghost" data-i18n="access.mapBtn">地図で見る</a>
@@ -1049,6 +1096,7 @@ section{position:relative;}
     <p class="h1-echo reveal" data-i18n="footer.echo">酒、笑、<br><em>ここはお前の場所。</em></p>
     <p class="thanks reveal" data-i18n="footer.thanks">「楽しかった。」</p>
     <p class="msg reveal" data-i18n="footer.msg">その一言のために、今日もお店を開けています。<br>また帰ってきてください。</p>
+    <span class="nakarakun-wrap reveal" style="margin-top:1.2rem;"><img class="nakarakun nakarakun-md nakarakun-wave" src="images/nakarakun-mascot.png" alt="ナカラくん" width="54" height="54" loading="lazy"></span>
 
     <div class="footer-panel win reveal">
       <span class="win-tab">またね</span>
@@ -1238,7 +1286,9 @@ section{position:relative;}
     'sticky.call': 'Call',
     'ticker.porkSkewer': 'Pork Skewers',
     'ticker.shinshuMeat': 'Shinshu Meat',
-    'ticker.friedTofu': 'Fried Tofu'
+    'ticker.friedTofu': 'Fried Tofu',
+    'mascot.menuPick': 'Nakara-kun’s<br>Pick!',
+    'mascot.reservePick': 'We can’t wait<br>to see you!'
   };
 
   var langSwitch = document.getElementById('langSwitch');
