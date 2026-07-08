@@ -557,32 +557,6 @@ section{position:relative;}
 .ticket-stub .divider{width:60%; height:1px; background:repeating-linear-gradient(90deg, rgba(201,162,75,.6) 0 6px, transparent 6px 12px); margin:1rem 0;}
 .ticket-stub .note{font-size:.72rem; color:var(--cream-dim);}
 
-/* ===== Sports ===== */
-.sports-section{
-  min-height:80vh; display:flex; align-items:center; position:relative; isolation:isolate; overflow:hidden;
-}
-.sports-bg{
-  position:absolute; inset:0; z-index:-2; background-size:cover; background-position:center;
-  background-image:url("images/sports.jpg"),
-    radial-gradient(ellipse 55% 60% at 50% 40%, rgba(60,180,255,.14), transparent 65%),
-    radial-gradient(ellipse 70% 60% at 15% 100%, rgba(184,32,44,.5), transparent 60%),
-    linear-gradient(180deg,#080607,#0a0807 60%);
-}
-.sports-bg::after{content:""; position:absolute; inset:0; background:linear-gradient(90deg, rgba(5,4,3,.94) 15%, rgba(5,4,3,.35) 75%);}
-.screen-frame{
-  border-radius:14px; padding:.5rem .7rem; margin:1.6rem 0 1.8rem; box-shadow:0 0 50px rgba(80,160,255,.12);
-}
-.screen-frame .win-tab{border-radius:7px; padding:.24rem .7rem; font-size:.62rem; left:.9rem;}
-.screen-frame .dot-row{display:flex; gap:6px; padding:4px 8px;}
-.screen-frame .dot-row span{width:7px; height:7px; border-radius:50%; background:rgba(247,243,232,.35);}
-.sports-content{position:relative; z-index:1; padding:4.5rem 0;}
-.sports-content .h2{max-width:14em;}
-.sports-content .section-lead{margin:1.1rem 0 0; text-align:left; max-width:26em;}
-.sports-badges{display:flex; flex-wrap:wrap; gap:.6rem; margin-top:1.8rem;}
-.sports-badges span{
-  font-family:var(--pixel); border:2px solid var(--white); border-radius:999px; padding:.5rem 1rem; font-size:.72rem; color:var(--white);
-  background:var(--black-deep);
-}
 
 /* ===== Instagram ===== */
 .insta-head{display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; margin-bottom:2rem;}
@@ -1021,28 +995,10 @@ section{position:relative;}
   </div>
 </section>
 
-<!-- ===================== スポーツ観戦 ===================== -->
-<section class="sports-section is-hidden" id="sports">
-  <div class="sports-bg"></div>
-  <div class="grain"></div>
-  <div class="wrap sports-content">
-    <div class="screen-frame win reveal">
-      <span class="win-tab">CH.1</span>
-      <div class="dot-row"><span></span><span></span><span></span></div>
-    </div>
-    <span class="kicker reveal" data-i18n="sports.kicker">スポーツ観戦</span>
-    <h2 class="h2 reveal" data-i18n="sports.title">大画面で乾杯しよう。<br>プロジェクター、はじめました。</h2>
-    <p class="section-lead reveal" data-i18n="sports.lead">仲間と肩を組んで、初めましての人とハイタッチして。<br>
-      「スポーツ観戦なら、ナカラハイカラ。」<br>そんな居酒屋を目指しています。</p>
-    <div class="sports-badges reveal">
-      <span data-i18n="sports.badge.soccer">⚽ サッカー</span>
-      <span data-i18n="sports.badge.baseball">⚾ 野球</span>
-      <span data-i18n="sports.badge.rugby">🏉 ラグビー</span>
-      <span data-i18n="sports.badge.combat">🥊 格闘技</span>
-      <span data-i18n="sports.badge.projector">📽️ プロジェクター完備</span>
-    </div>
-  </div>
-</section>
+<!-- Reserved slot: Brand Story "ナカラの縁日" section planned here.
+     Insert a new <section> directly below (between MENU and INSTAGRAM)
+     following the same .section/.wrap/.section-head/reveal pattern
+     used elsewhere on this page. -->
 
 <!-- ===================== Instagram ===================== -->
 <section class="section section-dark" id="instagram">
@@ -1340,14 +1296,6 @@ section{position:relative;}
     'ticket.yen': 'yen',
     'ticket.sheets': '1 ticket = 1 standard drink',
     'ticket.note': 'Draft beer needs<br><b style="color:var(--gold-soft);">2 tickets</b> per glass',
-    'sports.kicker': 'Sports Viewing',
-    'sports.title': 'Raise a glass to the big screen.<br>Now with projector viewing.',
-    'sports.lead': 'Arm in arm with your friends, high-fiving people you just met.<br>\n      “For sports and a good time — Nakara Haikara.”<br>That’s the izakaya we’re building.',
-    'sports.badge.soccer': '⚽ Soccer',
-    'sports.badge.baseball': '⚾ Baseball',
-    'sports.badge.rugby': '🏉 Rugby',
-    'sports.badge.combat': '🥊 Combat Sports',
-    'sports.badge.projector': '📽️ Projector Screen',
     'insta.title': '“Today’s good stuff”<br>updated right here.',
     'insta.tagline': 'Tag your photos <b style="color:var(--cream);">#ナカラハイカラ</b> when you visit.',
     'insta.cta': 'See More on Instagram',
