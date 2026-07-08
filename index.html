@@ -354,41 +354,66 @@ section{position:relative;}
 }
 .scroll-cue .arrow{font-family:var(--pixel); color:var(--white); font-size:1rem; animation:blinkY 1.4s ease-in-out infinite;}
 
-/* ===== Hero town bulletin board (event teaser) ===== */
+/* =====================================================================
+   Hero town bulletin board — reusable "event teaser" component.
+   To swap in a new event: edit the text inside #heroBulletin only
+   (title / date / time / place / price / button href+label). To turn
+   this into a past-event archive card, change heroBulletin.title to
+   "ナカラの縁日 2026 アーカイブ" and repoint the button at the archive
+   section of nakara-ennichi.html. Structure/positioning need no changes.
+   ===================================================================== */
 .hero-bulletin{
-  display:block; position:absolute; top:5.4rem; right:var(--gap); z-index:3;
-  width:min(210px,44vw);
-  background:linear-gradient(160deg,#3c2b1d,#1d140f);
-  border:5px solid #6b4527; border-radius:6px;
-  padding:.85rem .9rem .95rem;
-  box-shadow:0 14px 30px rgba(0,0,0,.55), inset 0 0 0 2px rgba(0,0,0,.35);
+  position:absolute; top:5.4rem; right:var(--gap); z-index:3;
+  width:min(220px,44vw);
   transform:rotate(1.2deg);
-  transition:transform .25s ease, box-shadow .25s ease;
+  transition:transform .25s ease;
 }
-.hero-bulletin:hover{transform:rotate(0deg) scale(1.04); box-shadow:0 18px 36px rgba(0,0,0,.6), inset 0 0 0 2px rgba(0,0,0,.35);}
-.hero-bulletin .hb-tag{
-  display:inline-block; font-family:var(--pixel); font-size:.56rem; letter-spacing:.06em; color:var(--gold-soft);
-  background:rgba(5,4,3,.5); border:1px solid rgba(232,205,143,.4); border-radius:4px; padding:.22rem .5rem; margin-bottom:.55rem;
+.hero-bulletin:hover{transform:rotate(0deg) scale(1.04);}
+.hb-frame{
+  background:linear-gradient(155deg,#6b4527,#3a2413);
+  border-radius:7px; padding:.5rem;
+  box-shadow:0 14px 30px rgba(0,0,0,.55), inset 0 0 0 2px rgba(0,0,0,.3);
 }
-.hero-bulletin h3{
-  font-family:var(--pixel); font-weight:400; font-size:.86rem; color:var(--white); line-height:1.6; margin-bottom:.55rem;
+.hb-paper{
+  position:relative;
+  background:
+    repeating-linear-gradient(0deg, rgba(90,60,20,.06) 0 3px, transparent 3px 22px),
+    linear-gradient(160deg,#efe3c7,#ddcb9e);
+  border-radius:2px;
+  padding:1rem .8rem .85rem;
+  box-shadow:inset 0 0 16px rgba(90,60,20,.3);
 }
-.hero-bulletin .hb-time{
-  font-family:var(--pixel); font-size:.62rem; color:var(--cream-dim); line-height:1.8; margin-bottom:.55rem;
+.hb-pin{
+  position:absolute; top:-14px; left:50%; transform:translateX(-50%) rotate(-6deg);
+  font-size:1.35rem; filter:drop-shadow(0 3px 3px rgba(0,0,0,.5));
 }
-.hero-bulletin .hb-place{
-  font-family:var(--pixel); font-size:.62rem; color:var(--gold-soft); margin-bottom:.6rem;
+.hb-tag{
+  display:inline-block; font-family:var(--pixel); font-size:.56rem; letter-spacing:.04em; color:var(--red-dark);
+  background:rgba(184,32,44,.1); border:1px solid rgba(184,32,44,.45); border-radius:3px; padding:.2rem .45rem; margin-bottom:.6rem;
 }
-.hero-bulletin .hb-link{
-  display:flex; align-items:center; gap:.3rem; font-family:var(--pixel); font-size:.6rem; color:var(--white);
-  border-top:1px dashed rgba(247,243,232,.25); padding-top:.55rem; transition:color .2s ease;
+.hb-title{
+  font-family:var(--pixel); font-weight:400; font-size:.92rem; color:#2b1c0f; line-height:1.5; margin-bottom:.65rem;
 }
-.hero-bulletin:hover .hb-link{color:var(--red-glow);}
+.hb-row{font-family:var(--pixel); font-size:.58rem; color:#5b4327; line-height:1.7; margin-bottom:.55rem;}
+.hb-row b{
+  display:block; color:var(--red-dark); font-weight:400; letter-spacing:.08em; font-size:.9em; margin-bottom:.15em;
+}
+.hb-price{font-family:var(--pixel); font-size:.6rem; color:var(--red-dark); margin-bottom:.75rem; line-height:1.6;}
+.hb-btn{
+  display:block; text-align:center; font-family:var(--pixel); font-size:.62rem; letter-spacing:.02em;
+  color:var(--white); background:linear-gradient(160deg,var(--red),var(--red-dark));
+  border:2px solid var(--red-dark); border-radius:999px; padding:.5rem .6rem;
+  box-shadow:0 6px 14px rgba(184,32,44,.4); transition:transform .2s ease, box-shadow .2s ease;
+}
+.hb-btn::before{content:"► "; opacity:.85;}
+.hb-btn:hover{transform:scale(1.05); box-shadow:0 8px 18px rgba(184,32,44,.55); color:var(--white);}
+
 @media(max-width:600px){
-  .hero-bulletin{top:4.6rem; right:calc(var(--gap) - .3rem); width:min(150px,46vw); padding:.6rem .65rem .7rem;}
-  .hero-bulletin h3{font-size:.72rem;}
-  .hero-bulletin .hb-tag{font-size:.5rem;}
-  .hero-bulletin .hb-time, .hero-bulletin .hb-place, .hero-bulletin .hb-link{font-size:.54rem;}
+  .hero{flex-direction:column; align-items:stretch;}
+  .hero-bulletin{
+    position:static; transform:none; width:min(300px,100%); margin:2rem auto 0;
+  }
+  .hero-bulletin:hover{transform:none;}
 }
 
 /* ===== Section shells ===== */
@@ -828,13 +853,6 @@ section{position:relative;}
     <button type="button" class="lang-btn" data-lang="ja">日本語</button>
     <button type="button" class="lang-btn" data-lang="en">English</button>
   </div>
-  <a href="nakara-ennichi.html" class="hero-bulletin reveal is-visible" aria-label="ナカラの縁日 詳しくはこちら">
-    <span class="hb-tag" data-i18n="heroBulletin.tag">🏮 町の掲示板</span>
-    <h3 data-i18n="heroBulletin.title">ナカラの縁日<br>7月11日（土）</h3>
-    <p class="hb-time" data-i18n="heroBulletin.time">午前の部 11:00〜12:30<br>午後の部 13:30〜15:00</p>
-    <p class="hb-place" data-i18n="heroBulletin.place">場所：ナカラハイカラ。</p>
-    <span class="hb-link" data-i18n="heroBulletin.link">詳しくはこちら ►</span>
-  </a>
   <div class="wrap hero-content reveal is-visible">
     <span class="eyebrow">MATSUMOTO / IZAKAYA</span>
     <h1 data-i18n="hero.title">酒、笑、<br><em>ここはおまえのばしょ。</em></h1>
@@ -853,6 +871,23 @@ section{position:relative;}
       </a>
     </div>
   </div>
+
+  <!-- Town bulletin board — reusable event-teaser component, see CSS comment above .hero-bulletin -->
+  <div class="hero-bulletin reveal is-visible" id="heroBulletin">
+    <div class="hb-frame">
+      <div class="hb-paper">
+        <span class="hb-pin" aria-hidden="true">📌</span>
+        <span class="hb-tag" data-i18n="heroBulletin.tag">町の掲示板</span>
+        <h3 class="hb-title" data-i18n="heroBulletin.title">ナカラの縁日</h3>
+        <p class="hb-row" data-i18n="heroBulletin.date"><b>DATE</b>7月11日（土）</p>
+        <p class="hb-row" data-i18n="heroBulletin.time"><b>TIME</b>午前の部 11:00〜12:30<br>午後の部 13:30〜15:00</p>
+        <p class="hb-row" data-i18n="heroBulletin.place"><b>PLACE</b>ナカラハイカラ。</p>
+        <p class="hb-price" data-i18n="heroBulletin.price">子ども無料 ／ 大人500円</p>
+        <a href="nakara-ennichi.html" class="hb-btn" data-i18n="heroBulletin.btn">詳しくはこちら</a>
+      </div>
+    </div>
+  </div>
+
   <div class="scroll-cue">
     <span class="nakarakun-wrap"><img class="nakarakun nakarakun-sm" src="images/nakarakun-mascot.png" alt="ナカラくん" width="32" height="32" loading="lazy"></span>
     <span>SCROLL</span><span class="arrow">▼</span>
@@ -1351,11 +1386,13 @@ section{position:relative;}
     'ticker.friedTofu': 'Fried Tofu',
     'mascot.menuPick': 'Nakara-kun’s<br>Pick!',
     'mascot.reservePick': 'We can’t wait<br>to see you!',
-    'heroBulletin.tag': '🏮 Town Bulletin',
-    'heroBulletin.title': 'Nakara’s Ennichi<br>Sat, July 11',
-    'heroBulletin.time': 'Morning 11:00–12:30<br>Afternoon 13:30–15:00',
-    'heroBulletin.place': 'At: Nakara Haikara.',
-    'heroBulletin.link': 'Learn more ►'
+    'heroBulletin.tag': 'Town Bulletin',
+    'heroBulletin.title': 'Nakara’s Ennichi',
+    'heroBulletin.date': '<b>DATE</b>Sat, July 11',
+    'heroBulletin.time': '<b>TIME</b>Morning 11:00–12:30<br>Afternoon 13:30–15:00',
+    'heroBulletin.place': '<b>PLACE</b>Nakara Haikara.',
+    'heroBulletin.price': 'Free for kids / ¥500 for adults',
+    'heroBulletin.btn': 'Learn more'
   };
 
   var langSwitch = document.getElementById('langSwitch');
