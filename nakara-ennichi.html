@@ -655,6 +655,10 @@ section{position:relative;}
 }
 
 </style>
+
+<!-- Vercel Web Analytics (enable in Vercel dashboard: Project > Analytics > Enable) -->
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+<script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
 
@@ -941,6 +945,20 @@ section{position:relative;}
       try{ localStorage.setItem(LANG_KEY, lang); }catch(err){}
     });
   }
+
+  // ===== Vercel Analytics: custom click events =====
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('a');
+    if(!a || typeof window.va !== 'function') return;
+    var href = a.getAttribute('href') || '';
+    if(a.classList.contains('ennichi-cta')){
+      window.va('event', {name:'ennichi_cta_click'});
+    } else if(href.indexOf('tel:') === 0){
+      window.va('event', {name:'phone_click'});
+    } else if(href.indexOf('instagram.com') !== -1){
+      window.va('event', {name:'instagram_click'});
+    }
+  });
 })();
 </script>
 </body>
