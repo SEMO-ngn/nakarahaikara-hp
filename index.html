@@ -71,6 +71,7 @@
   --white:#f7f3e8;
   --gold:#c9a24b;
   --gold-soft:#e8cd8f;
+  --lantern:#f0d09a;
   --cream:#f6ede0;
   --cream-dim:#b3a593;
   --gap:clamp(1.25rem,5vw,3rem);
@@ -264,7 +265,10 @@ section{position:relative;}
   font-size:clamp(2.2rem,8.6vw,3.9rem); line-height:1.42; letter-spacing:.01em;
   text-shadow:0 6px 30px rgba(0,0,0,.6);
 }
-.hero h1 em{font-style:normal; color:var(--red-glow); display:inline-block; font-size:.88em; letter-spacing:.03em; margin-top:.15em;}
+.hero h1 em{
+  font-style:normal; color:var(--lantern); display:inline-block; font-size:.88em; letter-spacing:.03em; margin-top:.15em;
+  text-shadow:0 2px 16px rgba(0,0,0,.55), 0 0 22px rgba(240,208,140,.22);
+}
 .hero .lead{
   margin-top:1.4rem; max-width:30em; color:var(--cream-dim); font-size:1rem; font-weight:500;
 }
@@ -865,7 +869,7 @@ section{position:relative;}
   </div>
   <div class="wrap hero-content reveal is-visible">
     <span class="eyebrow">MATSUMOTO / IZAKAYA</span>
-    <h1 data-i18n="hero.title">酒、笑、<br><em>ここはおまえのばしょ。</em></h1>
+    <h1 data-i18n="hero.title">酒、笑、<br><em>おまえのばしょ。</em></h1>
     <p class="lead" data-i18n="hero.lead"><b>今日も誰かが笑ってる。</b><br>
       美味しい酒と肉を囲み、初めて来ても、<br>
       気づけばまた帰ってきたくなる。<br>
@@ -1297,7 +1301,7 @@ section{position:relative;}
   });
 
   I18N.en = {
-    'hero.title': 'Sake, laughter,<br><em>this is your place.</em>',
+    'hero.title': 'Sake, laughter,<br><em>your place.</em>',
     'hero.lead': '<b>Someone’s laughing here tonight.</b><br>\n      Good food, good drinks, and easy company —<br>\n      even first-timers find themselves<br>\n      wanting to come back to this little izakaya.',
     'cta.reserveCall': 'Reserve by Phone',
     'cta.instagramView': 'See Instagram',
