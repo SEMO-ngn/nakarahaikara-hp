@@ -438,6 +438,7 @@ section{position:relative;}
 .reveal-delay-1{transition-delay:.1s;}
 .reveal-delay-2{transition-delay:.22s;}
 .reveal-delay-3{transition-delay:.34s;}
+.reveal-delay-4{transition-delay:.5s;}
 
 /* ===== Story ===== */
 .story-grid{display:grid; gap:1.6rem; grid-template-columns:1fr; margin-top:2.5rem;}
@@ -457,6 +458,20 @@ section{position:relative;}
 }
 .story-punch span{color:var(--gold-soft);}
 .story-sub{text-align:center; margin-top:.9rem; font-family:var(--brush); color:var(--gold-soft); font-size:1.2rem;}
+
+/* Brand philosophy beat — a deliberate pause after the origin story,
+   not another line of explanation. Kept visually distinct from both
+   .story-punch (explains the name) and the hero's own copy. */
+.story-philosophy{margin-top:4rem; text-align:center;}
+.story-philosophy .philosophy-kicker{
+  display:block; font-family:var(--pixel); font-size:.6rem; letter-spacing:.4em; color:var(--gold-soft);
+  margin-bottom:1.3rem; opacity:.85;
+}
+.story-philosophy .philosophy-line{
+  font-family:var(--brush); font-weight:400; color:var(--white);
+  font-size:clamp(1.8rem,5.6vw,2.6rem); line-height:1.7;
+  text-shadow:0 6px 26px rgba(0,0,0,.45);
+}
 
 /* ===== Kodawari cards ===== */
 .card-grid{display:grid; gap:1.4rem; grid-template-columns:1fr; margin-top:2.6rem;}
@@ -643,6 +658,21 @@ section{position:relative;}
 .footer-social a:hover{background:var(--red-glow); border-color:var(--red-glow); transform:translateY(-3px) scale(1.06);}
 .footer-social svg{width:18px; height:18px;}
 .footer-bottom{margin-top:2.4rem; padding-top:1.6rem; border-top:2px dashed rgba(247,243,232,.15); font-size:.72rem; color:var(--cream-dim); letter-spacing:.05em;}
+
+/* Brand signature — the shop's own closing word, distinct from the
+   guest's "楽しかった。" feeling above it. A quiet hanko-style mark,
+   not a slogan. Shared across the homepage and Brand Story pages. */
+.brand-signature{margin-top:3.4rem; text-align:center;}
+.brand-signature .signature-mark{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:42px; height:42px; border-radius:50%;
+  background:var(--red); border:2px solid var(--white);
+  font-family:var(--serif); font-weight:700; font-size:1.1rem; color:var(--white);
+  box-shadow:0 8px 18px rgba(184,32,44,.4); margin-bottom:1rem;
+}
+.brand-signature .signature-line{
+  font-family:var(--brush); font-size:1.55rem; color:var(--cream); line-height:1.7;
+}
 
 /* ===== Sticky mobile CTA ===== */
 .sticky-cta{
@@ -904,6 +934,11 @@ section{position:relative;}
       肩の力を抜いて、楽しめる居酒屋。
     </p>
     <p class="story-sub reveal" data-i18n="story.sub">それが、ナカラハイカラ。</p>
+
+    <div class="story-philosophy reveal reveal-delay-4">
+      <span class="philosophy-kicker" data-i18n="story.philosophyKicker">BRAND PHILOSOPHY</span>
+      <p class="philosophy-line" data-i18n="story.philosophy">寄り道こそ、<br>おもしろい。</p>
+    </div>
   </div>
 </section>
 
@@ -1177,6 +1212,11 @@ section{position:relative;}
       </div>
     </div>
 
+    <div class="brand-signature reveal">
+      <span class="signature-mark" aria-hidden="true">酒</span>
+      <p class="signature-line" data-i18n="brand.signature">結局、道草。</p>
+    </div>
+
     <div class="footer-bottom">
       <p data-i18n="footer.bottomP1">なから、はいから。長野県松本市大手4-7-9 — ナカラハイカラ。</p>
       <p style="margin-top:.4rem;">&copy; <span id="year"></span> <span data-i18n="footer.copyright">ナカラハイカラ。All rights reserved.</span></p>
@@ -1276,6 +1316,8 @@ section{position:relative;}
     'story.p2': 'An old word from the 1920s meaning “<b>stylish</b>.”',
     'story.punch': '\n      Not the best meal of your life — <span>just good food, and a little bit of style.</span><br>\n      A Japanese pub where you can loosen up and just enjoy yourself.\n    ',
     'story.sub': 'That’s Nakara Haikara.',
+    'story.philosophyKicker': 'BRAND PHILOSOPHY',
+    'story.philosophy': 'It’s the detour<br>that makes it fun.',
     'kodawari.kicker': 'What We Care About',
     'kodawari.title': 'It’s not just the food —<br>it’s the feeling of belonging.',
     'kodawari.h3.1': 'Fresh Meat, Daily',
@@ -1332,6 +1374,7 @@ section{position:relative;}
     'footer.lineBtn': 'LINE Reservation (Coming Soon)',
     'footer.bottomP1': 'Nakara, Haikara. 4-7-9 Ote, Matsumoto, Nagano — Nakara Haikara.',
     'footer.copyright': 'Nakara Haikara. All rights reserved.',
+    'brand.signature': 'In the end,<br>just one more detour.',
     'sticky.call': 'Call',
     'ticker.porkSkewer': 'Pork Skewers',
     'ticker.shinshuMeat': 'Shinshu Meat',

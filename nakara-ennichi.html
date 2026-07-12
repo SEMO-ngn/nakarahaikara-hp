@@ -576,6 +576,19 @@ section{position:relative;}
 .footer-social svg{width:18px; height:18px;}
 .footer-bottom{margin-top:2.4rem; padding-top:1.6rem; border-top:2px dashed rgba(247,243,232,.15); font-size:.72rem; color:var(--cream-dim); letter-spacing:.05em;}
 
+/* Brand signature — shared with index.html's footer. */
+.brand-signature{margin-top:3.4rem; text-align:center;}
+.brand-signature .signature-mark{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:42px; height:42px; border-radius:50%;
+  background:var(--red); border:2px solid var(--white);
+  font-family:var(--serif); font-weight:700; font-size:1.1rem; color:var(--white);
+  box-shadow:0 8px 18px rgba(184,32,44,.4); margin-bottom:1rem;
+}
+.brand-signature .signature-line{
+  font-family:var(--brush); font-size:1.55rem; color:var(--cream); line-height:1.7;
+}
+
 /* ===== Sticky mobile CTA ===== */
 .sticky-cta{
   position:fixed; left:0; right:0; bottom:0; z-index:900; display:flex; gap:.6rem;
@@ -830,6 +843,11 @@ section{position:relative;}
       </div>
     </div>
 
+    <div class="brand-signature reveal">
+      <span class="signature-mark" aria-hidden="true">酒</span>
+      <p class="signature-line" data-i18n="brand.signature">結局、道草。</p>
+    </div>
+
     <div class="footer-bottom">
       <p data-i18n="footer.bottomP1">なから、はいから。長野県松本市大手4-7-9 — ナカラハイカラ。</p>
       <p style="margin-top:.4rem;">&copy; <span id="year"></span> <span data-i18n="footer.copyright">ナカラハイカラ。All rights reserved.</span></p>
@@ -919,7 +937,8 @@ section{position:relative;}
     'footer.callBtn': 'Reserve by Phone',
     'footer.lineBtn': 'LINE Reservation (Coming Soon)',
     'footer.bottomP1': 'Nakara, Haikara. 4-7-9 Ote, Matsumoto, Nagano \u2014 Nakara Haikara.',
-    'footer.copyright': 'Nakara Haikara. All rights reserved.'
+    'footer.copyright': 'Nakara Haikara. All rights reserved.',
+    'brand.signature': 'In the end,<br>just one more detour.'
   };
 
   var langSwitch = document.getElementById('langSwitch');
