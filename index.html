@@ -659,7 +659,11 @@ section{position:relative;}
 @media(max-width:899px){body{padding-bottom:74px;}}
 </style>
 
-<!-- Vercel Web Analytics (enable in Vercel dashboard: Project > Analytics > Enable) -->
+<!-- Vercel Web Analytics: enabled in the Vercel dashboard (Project > Analytics).
+     This project has no build step (plain HTML/CSS/JS, no Next.js/React/Vite),
+     so per Vercel's official docs we use the standalone script tag rather than
+     the @vercel/analytics npm package + <Analytics/> component (that method is
+     for framework-based projects only). -->
 <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
 <script defer src="/_vercel/insights/script.js"></script>
 </head>
