@@ -359,12 +359,16 @@ section{position:relative;}
 .scroll-cue .arrow{font-family:var(--pixel); color:var(--white); font-size:1rem; animation:blinkY 1.4s ease-in-out infinite;}
 
 /* =====================================================================
-   Hero town bulletin board — reusable "event teaser" component.
-   To swap in a new event: edit the text inside #heroBulletin only
-   (title / date / time / place / price / button href+label). To turn
-   this into a past-event archive card, change heroBulletin.title to
-   "ナカラの縁日 2026 アーカイブ" and repoint the button at the archive
-   section of nakara-ennichi.html. Structure/positioning need no changes.
+   Nakara bulletin board — reusable "what's next" teaser component.
+   Default/idle state: .hb-tag + .hb-title + .hb-body + .hb-soon (a
+   "coming soon" note — no event running, nothing to link to yet).
+   When a new event/notice is ready: swap .hb-body + .hb-soon for
+   .hb-row (date/time/place) + .hb-price + .hb-btn (see git history for
+   the exact markup used for "ナカラの縁日"), and point the button at
+   that event's own page. Once an event ends, move it into
+   「この場所の1ページ。」(ichipage-*.html) as a memory and put this
+   board back into its idle "coming soon" state — this board is for
+   "これから", the ichipage series is for "これまで".
    ===================================================================== */
 .hero-bulletin{
   position:absolute; top:5.4rem; right:var(--gap); z-index:3;
@@ -397,6 +401,11 @@ section{position:relative;}
 }
 .hb-title{
   font-family:var(--pixel); font-weight:400; font-size:.92rem; color:#2b1c0f; line-height:1.5; margin-bottom:.65rem;
+}
+.hb-body{font-family:var(--pixel); font-size:.6rem; color:#5b4327; line-height:1.85; margin-bottom:.85rem;}
+.hb-soon{
+  display:block; text-align:center; font-family:var(--pixel); font-size:.6rem; letter-spacing:.1em; color:var(--red-dark);
+  opacity:.85; padding-top:.65rem; border-top:1px dashed rgba(184,32,44,.35);
 }
 .hb-row{font-family:var(--pixel); font-size:.58rem; color:#5b4327; line-height:1.7; margin-bottom:.55rem;}
 .hb-row b{
@@ -893,18 +902,15 @@ section{position:relative;}
     </div>
   </div>
 
-  <!-- Town bulletin board — reusable event-teaser component, see CSS comment above .hero-bulletin -->
+  <!-- Nakara bulletin board — reusable event-teaser component, see CSS comment above .hero-bulletin -->
   <div class="hero-bulletin reveal is-visible" id="heroBulletin">
     <div class="hb-frame">
       <div class="hb-paper">
         <span class="hb-pin" aria-hidden="true">📌</span>
-        <span class="hb-tag" data-i18n="heroBulletin.tag">町の掲示板</span>
-        <h3 class="hb-title" data-i18n="heroBulletin.title">ナカラの縁日</h3>
-        <p class="hb-row" data-i18n="heroBulletin.date"><b>DATE</b>7月11日（土）</p>
-        <p class="hb-row" data-i18n="heroBulletin.time"><b>TIME</b>午前の部 11:00〜12:30<br>午後の部 13:30〜15:00</p>
-        <p class="hb-row" data-i18n="heroBulletin.place"><b>PLACE</b>ナカラハイカラ。</p>
-        <p class="hb-price" data-i18n="heroBulletin.price">子ども無料 ／ 大人500円</p>
-        <a href="nakara-ennichi.html" class="hb-btn" data-i18n="heroBulletin.btn">詳しくはこちら</a>
+        <span class="hb-tag" data-i18n="heroBulletin.tag">ナカラ掲示板。</span>
+        <h3 class="hb-title" data-i18n="heroBulletin.title">次の寄り道、<br>準備中。</h3>
+        <p class="hb-body" data-i18n="heroBulletin.body">現在、次の企画を準備しています。<br>もう少しだけ、お待ちください。</p>
+        <span class="hb-soon" data-i18n="heroBulletin.soon">Coming Soon...</span>
       </div>
     </div>
   </div>
@@ -1388,13 +1394,10 @@ section{position:relative;}
     'ticker.friedTofu': 'Fried Tofu',
     'mascot.menuPick': 'Nakara-kun’s<br>Pick!',
     'mascot.reservePick': 'We can’t wait<br>to see you!',
-    'heroBulletin.tag': 'Town Bulletin',
-    'heroBulletin.title': 'Nakara’s Ennichi',
-    'heroBulletin.date': '<b>DATE</b>Sat, July 11',
-    'heroBulletin.time': '<b>TIME</b>Morning 11:00–12:30<br>Afternoon 13:30–15:00',
-    'heroBulletin.place': '<b>PLACE</b>Nakara Haikara.',
-    'heroBulletin.price': 'Free for kids / ¥500 for adults',
-    'heroBulletin.btn': 'Learn more'
+    'heroBulletin.tag': 'Nakara Bulletin.',
+    'heroBulletin.title': 'The next detour is<br>on its way.',
+    'heroBulletin.body': 'We’re putting together what’s next.<br>Just a little while longer.',
+    'heroBulletin.soon': 'Coming Soon...'
   };
 
   var langSwitch = document.getElementById('langSwitch');
