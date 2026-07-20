@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>この場所の1ページ。ナカラの縁日 2026.7.11 | ナカラハイカラ。</title>
+<meta name="description" content="2026年7月11日、ナカラハイカラ。で流れていた時間の記録。写真で綴る、この場所のもう一つのページ。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://nakarahaikara-hp.vercel.app/ichipage-ennichi.html">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="この場所の1ページ。ナカラの縁日 2026.7.11 | ナカラハイカラ。">
+<meta property="og:description" content="2026年7月11日、ナカラハイカラ。で流れていた時間の記録。">
+<meta property="og:image" content="images/ennichi-day-toast.jpg">
+<meta property="og:url" content="https://nakarahaikara-hp.vercel.app/ichipage-ennichi.html">
+<meta property="og:site_name" content="ナカラハイカラ。">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="この場所の1ページ。ナカラの縁日 2026.7.11">
+<meta name="twitter:description" content="2026年7月11日、ナカラハイカラ。で流れていた時間の記録。">
+<meta name="twitter:image" content="images/ennichi-day-toast.jpg">
+
+<meta name="theme-color" content="#1a1210">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23b3242c'/%3E%3Ctext x='50' y='68' font-size='58' text-anchor='middle' fill='%23f5ede1' font-family='serif'%3E酒%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Yuji+Syuku&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --red:#b8202c;
+  --red-dark:#6b131c;
+  --red-glow:#e2483f;
+  --black:#0a0807;
+  --black-deep:#050403;
+  --black-soft:#161110;
+  --white:#f7f3e8;
+  --gold:#c9a24b;
+  --gold-soft:#e8cd8f;
+  --lantern:#f0d09a;
+  --cream:#f6ede0;
+  --cream-dim:#b3a593;
+  --gap:clamp(1.25rem,5vw,3rem);
+  --radius:20px;
+  --radius-win:28px;
+  --serif:"Shippori Mincho", serif;
+  --sans:"Zen Kaku Gothic New", "Hiragino Sans", sans-serif;
+  --brush:"Yuji Syuku", serif;
+  --pixel:"DotGothic16", "Zen Kaku Gothic New", monospace;
+  --header-h:4.75rem;
+}
+
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--sans);
+  background:var(--black);
+  color:var(--cream);
+  overflow-x:hidden;
+  line-height:1.8;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%; display:block;}
+a{color:inherit; text-decoration:none;}
+button{font-family:inherit; cursor:pointer;}
+section{position:relative;}
+.wrap{max-width:1080px; margin:0 auto; padding-left:var(--gap); padding-right:var(--gap);}
+
+.grain{position:absolute; inset:0; pointer-events:none; opacity:.5; mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.stars-bg{position:absolute; inset:0; pointer-events:none; opacity:.5;
+  background-image:radial-gradient(circle, rgba(247,243,232,.9) 1px, transparent 1.6px);
+  background-size:38px 38px;
+}
+
+/* ===== Window (retro-game dialogue box) ===== */
+.win{
+  position:relative;
+  background:
+    radial-gradient(120% 140% at 15% 0%, rgba(184,32,44,.16), transparent 55%),
+    linear-gradient(165deg, #130909, #060403 65%);
+  border-style:solid; border-width:12px; border-color:transparent;
+  border-image:url("images/waku.png") 75 stretch;
+  border-radius:var(--radius-win);
+  box-shadow:0 0 0 1px rgba(0,0,0,.6), 0 22px 46px rgba(0,0,0,.55);
+}
+.win-tab{
+  position:absolute; top:0; left:1.4rem; transform:translateY(-50%);
+  background:var(--black-deep); border:3px solid var(--white); border-radius:9px;
+  padding:.32rem 1rem; font-family:var(--pixel); font-size:.72rem; letter-spacing:.08em; color:var(--white);
+  z-index:2; white-space:nowrap;
+}
+
+/* ===== Header ===== */
+.site-header{
+  position:fixed; top:0; left:0; right:0; z-index:1000;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:1rem var(--gap);
+  transition:background .4s ease, padding .4s ease, box-shadow .4s ease;
+}
+.site-header.solid{
+  background:rgba(10,8,7,.92);
+  backdrop-filter:blur(10px);
+  box-shadow:0 4px 20px rgba(0,0,0,.4);
+  padding:.7rem var(--gap);
+}
+.logo{
+  font-family:var(--pixel); font-weight:400; font-size:1rem; letter-spacing:.02em;
+  color:var(--white);
+  display:flex; align-items:center; gap:.5rem;
+}
+.logo span{color:var(--lantern);}
+.menu-btn{
+  width:44px; height:44px; border-radius:50%; border:2px solid rgba(247,243,232,.5);
+  background:rgba(10,8,7,.5); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5px;
+  transition:border-color .25s ease, transform .2s ease;
+}
+.menu-btn:hover{border-color:var(--white); transform:scale(1.06);}
+.menu-btn span{width:18px; height:2px; background:var(--white); transition:.3s;}
+.menu-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.menu-btn.open span:nth-child(2){opacity:0;}
+.menu-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+.nav-overlay{
+  position:fixed; inset:0; z-index:999;
+  background:radial-gradient(120% 100% at 50% 0%, rgba(184,32,44,.22), transparent 60%), var(--black-deep);
+  display:flex; align-items:center; justify-content:center;
+  opacity:0; pointer-events:none; transition:opacity .4s ease;
+  padding:1.5rem;
+}
+.nav-overlay.open{opacity:1; pointer-events:auto;}
+.nav-overlay .stars-bg{opacity:.35;}
+.nav-window{
+  position:relative; z-index:1; padding:2.6rem clamp(1.6rem,8vw,4rem); width:100%; max-width:420px;
+  transform:scale(.92); opacity:0; transition:transform .4s cubic-bezier(.34,1.4,.64,1), opacity .35s ease;
+}
+.nav-overlay.open .nav-window{transform:scale(1); opacity:1;}
+.nav-overlay ul{list-style:none; text-align:center;}
+.nav-overlay li{margin:1rem 0;}
+.nav-overlay a{
+  font-family:var(--pixel); font-size:1.3rem; font-weight:400; color:var(--white);
+  position:relative; transition:color .25s;
+}
+.nav-overlay a::before{content:"► "; opacity:0; transition:opacity .2s ease; color:var(--red-glow);}
+.nav-overlay a:hover{color:var(--red-glow);}
+.nav-overlay a:hover::before{opacity:1;}
+.nav-overlay .sub{font-family:var(--sans); font-size:.68rem; letter-spacing:.25em; color:var(--gold-soft); display:block; margin-top:3px;}
+
+.btn{
+  display:inline-flex; align-items:center; gap:.55rem;
+  padding:.95rem 1.7rem .95rem 2.1rem; border-radius:999px; font-weight:400; font-size:.88rem;
+  font-family:var(--pixel); letter-spacing:.02em;
+  border:3px solid var(--white); background:var(--black-deep); color:var(--white);
+  position:relative; transition:transform .22s ease, box-shadow .22s ease, background .22s ease, color .22s ease, border-color .22s ease;
+  white-space:nowrap;
+}
+.btn::before{
+  content:"►"; position:absolute; left:.7rem; top:50%; font-size:.7em;
+  transform:translate(-6px,-50%); opacity:0; transition:opacity .2s ease, transform .2s ease;
+}
+.btn:hover::before{opacity:1; transform:translate(0,-50%);}
+.btn:hover{transform:scale(1.05);}
+.btn:active{transform:scale(.96);}
+.btn-primary{border-color:var(--red-glow); background:linear-gradient(160deg,var(--red),var(--red-dark)); color:var(--white); box-shadow:0 10px 26px rgba(184,32,44,.35);}
+.btn-primary:hover{background:var(--white); color:var(--red-dark); border-color:var(--white); box-shadow:0 0 0 3px rgba(226,72,63,.2), 0 14px 34px rgba(226,72,63,.5);}
+.btn-ghost{background:var(--black-deep); color:var(--white); border-color:rgba(247,243,232,.55);}
+.btn-ghost:hover{background:var(--white); color:var(--black-deep); border-color:var(--white); box-shadow:0 0 24px rgba(247,243,232,.25);}
+.btn svg{width:18px; height:18px; flex:none;}
+.btn-disabled{opacity:.45; pointer-events:none; filter:grayscale(.4);}
+.is-hidden{display:none;}
+
+/* ===== Nakarakun mascot component ===== */
+.nakarakun-wrap{display:inline-block; flex:none; transition:transform .25s ease;}
+.nakarakun-wrap:hover{transform:scale(1.12);}
+.nakarakun{
+  display:block; width:100%; height:100%; box-sizing:border-box;
+  border-radius:50%; object-fit:contain; object-position:center;
+  background:var(--red); border:2px solid var(--white); padding:.2em;
+  animation:nakarakunFloat 3.2s ease-in-out infinite;
+}
+.nakarakun-wave{animation:nakarakunWave 2.6s ease-in-out infinite;}
+@keyframes nakarakunFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-3px);}}
+@keyframes nakarakunWave{0%,100%{transform:translateY(0) rotate(0deg);}25%{transform:translateY(-3px) rotate(-6deg);}75%{transform:translateY(-3px) rotate(6deg);}}
+@media(prefers-reduced-motion:reduce){.nakarakun{animation:none;}}
+.nakarakun-sm{width:32px; height:32px;}
+.nakarakun-md{width:54px; height:54px;}
+
+/* ===== Language switch ===== */
+.lang-switch{
+  position:absolute; top:1.4rem; right:var(--gap); z-index:5;
+  display:flex; gap:.3rem; padding:.3rem;
+  background:rgba(10,8,7,.55); border:2px solid rgba(247,243,232,.4); border-radius:999px;
+  backdrop-filter:blur(6px);
+}
+.lang-btn{
+  font-family:var(--pixel); font-size:.62rem; letter-spacing:.03em; color:var(--cream-dim);
+  background:transparent; border:none; border-radius:999px; padding:.5rem .85rem;
+  transition:background .2s ease, color .2s ease;
+}
+.lang-btn.is-active{background:var(--white); color:var(--black-deep);}
+.lang-btn:not(.is-active):hover{color:var(--white);}
+@media(max-width:480px){
+  .lang-switch{top:1rem; right:calc(var(--gap) - .4rem); padding:.25rem;}
+  .lang-btn{padding:.42rem .6rem; font-size:.56rem;}
+}
+
+.scroll-cue{
+  position:relative; margin-top:2.6rem; display:flex; flex-direction:column; align-items:center; gap:.4rem;
+  color:var(--cream-dim); font-family:var(--pixel); font-size:.62rem; letter-spacing:.3em;
+}
+.scroll-cue .arrow{font-family:var(--pixel); color:var(--white); font-size:1rem; animation:blinkY 1.4s ease-in-out infinite;}
+@keyframes blinkY{0%,100%{opacity:.15; transform:translateY(0);}50%{opacity:1; transform:translateY(4px);}}
+
+/* reveal animation */
+.reveal{opacity:0; transform:translateY(30px) scale(.97); transition:opacity .8s cubic-bezier(.22,1.2,.36,1), transform .8s cubic-bezier(.22,1.2,.36,1);}
+.reveal.is-visible{opacity:1; transform:translateY(0) scale(1);}
+.reveal-delay-1{transition-delay:.14s;}
+.reveal-delay-2{transition-delay:.28s;}
+
+.back-link{
+  font-family:var(--pixel); font-size:.68rem; color:var(--cream-dim); letter-spacing:.05em;
+  display:flex; align-items:center; justify-content:center; gap:.4rem; margin-bottom:1.4rem; transition:color .2s ease;
+}
+.back-link:hover{color:var(--white);}
+
+/* ===== Album opening ===== */
+.album-hero{
+  min-height:74svh; display:flex; align-items:center; position:relative; isolation:isolate; overflow:hidden;
+  padding:calc(var(--header-h) + 3rem) 0 3rem;
+}
+.album-hero-bg{
+  position:absolute; inset:-6% -6%; z-index:-2;
+  background-image:url("images/ennichi-day-street.jpg"), linear-gradient(180deg, #140908 0%, #0b0807 55%, #050403 100%);
+  background-size:cover; background-position:50% 38%; background-repeat:no-repeat;
+  filter:blur(3px) saturate(.9);
+}
+.album-hero-bg::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(5,4,3,.72) 0%, rgba(5,4,3,.8) 55%, rgba(5,4,3,.94) 100%);
+}
+.album-hero .lang-switch{top:calc(var(--header-h) + .6rem);}
+@media(max-width:480px){.album-hero .lang-switch{top:calc(var(--header-h) + .3rem);}}
+.album-hero .wrap{position:relative; z-index:1; text-align:center;}
+.album-kicker{
+  font-family:var(--pixel); font-size:.85rem; letter-spacing:.15em; color:var(--lantern); display:inline-block;
+}
+.album-title{
+  font-family:var(--serif); font-weight:800; color:var(--white);
+  font-size:clamp(2rem,7vw,3.1rem); line-height:1.5; margin:1.1rem 0 1.6rem;
+  text-shadow:0 6px 30px rgba(0,0,0,.6);
+}
+.album-date{
+  display:inline-flex; align-items:center; gap:.5rem; font-family:var(--pixel); font-size:.8rem;
+  letter-spacing:.15em; color:var(--lantern); border:2px solid rgba(240,208,154,.4);
+  border-radius:999px; padding:.55rem 1.3rem; margin-bottom:2rem;
+}
+.album-intro{color:var(--cream-dim); font-size:.95rem; line-height:2; max-width:24em; margin:0 auto;}
+
+/* ===== Scenes ===== */
+.scene{padding:5.5rem 0;}
+.scene + .scene{border-top:2px dashed rgba(247,243,232,.14);}
+.scene-num{
+  display:block; font-family:var(--pixel); font-size:.7rem; letter-spacing:.35em; color:var(--lantern);
+  margin-bottom:1.3rem; opacity:.9; text-align:center;
+}
+.scene-text{
+  font-family:var(--serif); font-weight:500; color:var(--cream-dim);
+  font-size:clamp(.95rem,2.6vw,1.05rem); line-height:2.15;
+  max-width:26em; margin:0 auto 3.2rem; padding-left:1.1rem;
+  border-left:2px solid rgba(247,243,232,.16); text-align:left;
+}
+.scene-photos{display:flex; flex-direction:column; align-items:center; gap:3rem;}
+.album-photo{max-width:600px; width:100%;}
+.album-photo img{
+  width:100%; display:block; border-radius:3px; border:10px solid var(--white);
+  box-shadow:0 22px 44px rgba(0,0,0,.5), 0 0 0 1px rgba(0,0,0,.25);
+  filter:sepia(.1) saturate(1.05) contrast(1.02);
+}
+.album-photo:nth-child(odd){transform:rotate(-1.2deg); align-self:flex-start; margin-left:2%;}
+.album-photo:nth-child(even){transform:rotate(1deg); align-self:flex-end; margin-right:2%;}
+@media(max-width:640px){
+  .album-photo{align-self:center !important; margin:0 !important; max-width:100%;}
+}
+
+/* ===== Outro ===== */
+.album-outro{padding:6rem 0 2rem; text-align:center;}
+.album-outro-line{
+  font-family:var(--serif); font-weight:700; color:var(--cream); font-size:clamp(1.1rem,3.4vw,1.4rem);
+  line-height:2.1; margin-bottom:1.8rem;
+}
+.album-outro-sub{
+  font-family:var(--brush); color:var(--gold-soft); font-size:1.3rem; line-height:1.9;
+}
+
+/* ===== Footer ===== */
+.footer{
+  position:relative; isolation:isolate; overflow:hidden; text-align:center; padding:6rem 0 3rem;
+}
+.footer-bg{
+  position:absolute; inset:0; z-index:-1;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 0%, rgba(184,32,44,.32), transparent 60%),
+    linear-gradient(180deg,#0a0706,#120d0b 60%,#0a0706);
+}
+.footer .stars-bg{opacity:.4;}
+.footer .h1-echo{
+  font-family:var(--pixel); font-weight:400; color:var(--white);
+  font-size:clamp(1.8rem,7vw,2.9rem); line-height:1.55;
+}
+.footer .h1-echo em{font-style:normal; color:var(--lantern);}
+.footer .thanks{font-family:var(--brush); font-size:1.6rem; color:var(--gold-soft); margin:1.8rem 0 .8rem;}
+.footer .msg{color:var(--cream-dim); font-size:.92rem; max-width:26em; margin:0 auto; line-height:2;}
+.footer-panel{max-width:460px; margin:2.4rem auto 0; padding:2.6rem 1.6rem 2rem;}
+.footer-ctas{display:flex; justify-content:center; flex-wrap:wrap; gap:.9rem; margin-bottom:1.8rem;}
+.footer-social{display:flex; justify-content:center; gap:1rem;}
+.footer-social a{
+  width:42px; height:42px; border-radius:50%; border:2px solid var(--white); background:var(--black-deep);
+  display:flex; align-items:center; justify-content:center; transition:.25s;
+}
+.footer-social a:hover{background:var(--red-glow); border-color:var(--red-glow); transform:translateY(-3px) scale(1.06);}
+.footer-social svg{width:18px; height:18px;}
+.footer-bottom{margin-top:2.4rem; padding-top:1.6rem; border-top:2px dashed rgba(247,243,232,.15); font-size:.72rem; color:var(--cream-dim); letter-spacing:.05em;}
+
+.brand-signature{margin-top:3.4rem; text-align:center;}
+.brand-signature .signature-mark{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:42px; height:42px; border-radius:50%;
+  background:var(--red); border:2px solid var(--white);
+  font-family:var(--serif); font-weight:700; font-size:1.1rem; color:var(--white);
+  box-shadow:0 8px 18px rgba(184,32,44,.4); margin-bottom:1rem;
+}
+.brand-signature .signature-line{
+  font-family:var(--brush); font-size:1.55rem; color:var(--cream); line-height:1.7;
+}
+
+/* ===== Sticky mobile CTA ===== */
+.sticky-cta{
+  position:fixed; left:0; right:0; bottom:0; z-index:900; display:flex; gap:.6rem;
+  padding:.7rem var(--gap) calc(.7rem + env(safe-area-inset-bottom));
+  background:rgba(5,4,3,.9); backdrop-filter:blur(12px); border-top:2px solid rgba(247,243,232,.25);
+  transform:translateY(0); transition:transform .4s ease;
+}
+.sticky-cta.hide{transform:translateY(110%);}
+.sticky-cta .btn{flex:1; justify-content:center; padding:.85rem 1rem; font-size:.85rem;}
+@media(min-width:900px){.sticky-cta{display:none;}}
+@media(min-width:900px){body{padding-bottom:0;}}
+@media(max-width:899px){body{padding-bottom:74px;}}
+</style>
+
+<!-- Vercel Web Analytics: enabled in the Vercel dashboard (Project > Analytics).
+     This project has no build step (plain HTML/CSS/JS, no Next.js/React/Vite),
+     so per Vercel's official docs we use the standalone script tag rather than
+     the @vercel/analytics npm package + <Analytics/> component (that method is
+     for framework-based projects only). -->
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+<script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <a href="index.html" class="logo">
+    <span class="nakarakun-wrap"><img class="nakarakun nakarakun-sm" src="images/nakarakun-mascot.png" alt="ナカラくん" width="32" height="32" loading="eager"></span>
+    酒<span>&</span>笑 <span style="margin-left:.3em;">ナカラハイカラ。</span>
+  </a>
+  <button class="menu-btn" id="menuBtn" aria-label="メニューを開く"><span></span><span></span><span></span></button>
+</header>
+
+<nav class="nav-overlay" id="navOverlay">
+  <div class="stars-bg"></div>
+  <div class="nav-window win">
+    <span class="win-tab" data-i18n="nav.tab">コマンド</span>
+    <ul>
+      <li><a href="index.html#home" class="nav-link">HOME<span class="sub" data-i18n="nav.sub.home">トップ</span></a></li>
+      <li><a href="nakara-ennichi.html" class="nav-link">EVENT<span class="sub" data-i18n="nav.sub.event">ナカラの縁日</span></a></li>
+      <li><a href="ichipage-ennichi.html" class="nav-link">ALBUM<span class="sub" data-i18n="nav.sub.album">この場所の1ページ。</span></a></li>
+      <li><a href="index.html#story" class="nav-link">STORY<span class="sub" data-i18n="nav.sub.story">ナカラハイカラ。とは</span></a></li>
+      <li><a href="index.html#menu" class="nav-link">MENU<span class="sub" data-i18n="nav.sub.menu">人気メニュー</span></a></li>
+      <li><a href="index.html#instagram" class="nav-link">INSTAGRAM<span class="sub" data-i18n="nav.sub.instagram">最新の投稿</span></a></li>
+      <li><a href="index.html#access" class="nav-link">ACCESS<span class="sub" data-i18n="nav.sub.access">店舗情報</span></a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ===================== Opening ===================== -->
+<section class="album-hero" id="home">
+  <div class="album-hero-bg"></div>
+  <div class="stars-bg"></div>
+  <div class="grain"></div>
+  <div class="lang-switch" id="langSwitch" role="group" aria-label="Language / 言語切り替え">
+    <button type="button" class="lang-btn" data-lang="ja">日本語</button>
+    <button type="button" class="lang-btn" data-lang="en">English</button>
+  </div>
+  <div class="wrap reveal is-visible">
+    <a href="nakara-ennichi.html" class="back-link">◄ <span data-i18n="album.back">ナカラの縁日ページへ</span></a>
+    <span class="album-kicker" data-i18n="album.kicker">📖 この場所の1ページ。</span>
+    <h1 class="album-title" data-i18n="album.title">ナカラの縁日。</h1>
+    <div class="album-date"><span>2026.7.11</span></div>
+    <p class="album-intro" data-i18n="album.intro">その日、この場所に流れていた時間を、<br>少しだけ。</p>
+    <div class="scroll-cue">
+      <span class="nakarakun-wrap"><img class="nakarakun nakarakun-sm" src="images/nakarakun-mascot.png" alt="ナカラくん" width="32" height="32" loading="lazy"></span>
+      <span>SCROLL</span><span class="arrow">▼</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== Scene 1 ===================== -->
+<section class="scene">
+  <div class="wrap">
+    <span class="scene-num">SCENE 01</span>
+    <p class="scene-text reveal" data-i18n="album.s1">今日は少しだけ、いつもと違う日。<br>店の前には紙垂が飾られ、神輿が町を通ります。<br>子どもたちは、神輿が来るのを楽しみに待っています。</p>
+    <div class="scene-photos">
+      <figure class="album-photo reveal"><img src="images/ennichi-day-street.jpg" alt="紙垂が飾られたナカラハイカラの店先を、神輿が通り過ぎていく上土通り" loading="lazy" width="1280" height="960"></figure>
+      <figure class="album-photo reveal reveal-delay-1"><img src="images/ennichi-day-waiting.jpg" alt="紙垂の下がる路地の先、神輿が来るのを背伸びして待つ子どもたち" loading="lazy" width="960" height="1280"></figure>
+      <figure class="album-photo reveal reveal-delay-2"><img src="images/ennichi-day-mikoshi.jpg" alt="上土通りを進む、金色に輝く神輿" loading="lazy" width="1108" height="1477"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== Scene 2 ===================== -->
+<section class="scene">
+  <div class="wrap">
+    <span class="scene-num">SCENE 02</span>
+    <p class="scene-text reveal" data-i18n="album.s2">二階では、松本大学の学生たちが先生になり、スライムづくりやお絵描きを一緒に楽しみました。<br>最初は緊張していた子どもたちも、帰る頃には笑顔いっぱいでした。</p>
+    <div class="scene-photos">
+      <figure class="album-photo reveal"><img src="images/ennichi-day-craft1.jpg" alt="二階の座敷で、学生たちと一緒にスライムづくりを楽しむ子どもたち" loading="lazy" width="1706" height="960"></figure>
+      <figure class="album-photo reveal reveal-delay-1"><img src="images/ennichi-day-craft2.jpg" alt="テーブルを囲み、お絵描きに夢中になる子どもたちと学生スタッフ" loading="lazy" width="1706" height="960"></figure>
+      <figure class="album-photo reveal reveal-delay-2"><img src="images/ennichi-day-craft3.jpg" alt="風船とスライムに囲まれ、笑顔で工作を続ける子どもたちの様子" loading="lazy" width="1706" height="960"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== Scene 3 ===================== -->
+<section class="scene">
+  <div class="wrap">
+    <span class="scene-num">SCENE 03</span>
+    <p class="scene-text reveal" data-i18n="album.s3">一階では、お父さんやお母さんがドリンクを飲みながら、ゆっくりとした時間を過ごします。<br>子どもたちの笑い声を聞きながら、少しだけ自分たちの時間も楽しめる。<br>そんな一日になりました。</p>
+    <div class="scene-photos">
+      <figure class="album-photo reveal"><img src="images/ennichi-day-room.jpg" alt="ナカラハイカラの店内で、飲み物を片手にゆっくりと過ごす時間" loading="lazy" width="1477" height="1108"></figure>
+      <figure class="album-photo reveal reveal-delay-1"><img src="images/ennichi-day-pork.jpg" alt="鉄板で焼かれた信州ポークの一皿" loading="lazy" width="1477" height="1108"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== Scene 4 ===================== -->
+<section class="scene">
+  <div class="wrap">
+    <span class="scene-num">SCENE 04</span>
+    <p class="scene-text reveal" data-i18n="album.s4">イベントが終わる頃には、学生もスタッフも、みんな少し疲れて、でも笑っていました。<br>最後はみんなで乾杯。<br>また一つ、この場所に思い出が増えました。</p>
+    <div class="scene-photos">
+      <figure class="album-photo reveal"><img src="images/ennichi-day-toast.jpg" alt="学生とスタッフが集まり、グラスを掲げて乾杯する様子" loading="lazy" width="1477" height="1108"></figure>
+      <figure class="album-photo reveal reveal-delay-1"><img src="images/ennichi-day-staff.jpg" alt="厨房でグラスを掲げ、笑顔で乾杯するスタッフ" loading="lazy" width="1108" height="1477"></figure>
+      <figure class="album-photo reveal reveal-delay-2"><img src="images/ennichi-day-group.jpg" alt="ナカラハイカラの店先に集まった、この日の記念集合写真" loading="lazy" width="1170" height="1061"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== Outro ===================== -->
+<section class="album-outro">
+  <div class="grain"></div>
+  <div class="wrap">
+    <p class="album-outro-line reveal" data-i18n="album.outro1">この日も、また一つ、<br>ナカラの歴史になりました。</p>
+    <p class="album-outro-sub reveal reveal-delay-1" data-i18n="album.outro2">続きは、<br>お店で。</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-bg"></div>
+  <div class="stars-bg"></div>
+  <div class="grain"></div>
+  <div class="wrap">
+    <p class="h1-echo reveal" data-i18n="footer.echo">酒、笑、<br><em>ここはお前の場所。</em></p>
+    <p class="thanks reveal" data-i18n="footer.thanks">「楽しかった。」</p>
+    <p class="msg reveal" data-i18n="footer.msg">その一言のために、今日もお店を開けています。<br>また帰ってきてください。</p>
+    <span class="nakarakun-wrap reveal" style="margin-top:1.2rem;"><img class="nakarakun nakarakun-md nakarakun-wave" src="images/nakarakun-mascot.png" alt="ナカラくん" width="54" height="54" loading="lazy"></span>
+
+    <div class="footer-panel win win-cursor reveal">
+      <span class="win-tab">またね</span>
+      <div class="footer-ctas">
+        <a href="tel:08029472582" class="btn btn-primary" data-i18n="footer.callBtn">電話で予約する</a>
+        <a href="https://www.instagram.com/nakarahaikara" target="_blank" rel="noopener" class="btn btn-ghost">Instagram</a>
+        <a href="#" class="btn btn-ghost btn-disabled" aria-disabled="true" tabindex="-1" data-i18n="footer.lineBtn">LINE予約（準備中）</a>
+      </div>
+
+      <div class="footer-social">
+        <a href="https://www.instagram.com/nakarahaikara" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://share.google/4W8EmArTZOvJthn2u" target="_blank" rel="noopener" aria-label="Google">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </a>
+        <a href="tel:08029472582" aria-label="電話">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.36 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="brand-signature reveal">
+      <span class="signature-mark" aria-hidden="true">酒</span>
+      <p class="signature-line" data-i18n="brand.signature">結局、道草。</p>
+    </div>
+
+    <div class="footer-bottom">
+      <p data-i18n="footer.bottomP1">なから、はいから。長野県松本市大手4-7-9 — ナカラハイカラ。</p>
+      <p style="margin-top:.4rem;">&copy; <span id="year"></span> <span data-i18n="footer.copyright">ナカラハイカラ。All rights reserved.</span></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  document.getElementById('year') && (document.getElementById('year').textContent = new Date().getFullYear());
+
+  var header = document.getElementById('siteHeader');
+  function onScroll(){ header.classList.toggle('solid', window.scrollY > 40); }
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  var menuBtn = document.getElementById('menuBtn');
+  var navOverlay = document.getElementById('navOverlay');
+  function closeNav(){ menuBtn.classList.remove('open'); navOverlay.classList.remove('open'); }
+  menuBtn.addEventListener('click', function(){
+    menuBtn.classList.toggle('open');
+    navOverlay.classList.toggle('open');
+  });
+  document.querySelectorAll('.nav-link').forEach(function(a){ a.addEventListener('click', closeNav); });
+
+  var revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){ entry.target.classList.add('is-visible'); io.unobserve(entry.target); }
+      });
+    }, {threshold:.15, rootMargin:'0px 0px -60px 0px'});
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('is-visible'); });
+  }
+
+  // ===== Language switch (shared with main site) =====
+  var LANG_KEY = 'nakara-lang';
+  var i18nEls = document.querySelectorAll('[data-i18n]');
+  var I18N = { ja:{}, en:{} };
+  i18nEls.forEach(function(el){ I18N.ja[el.getAttribute('data-i18n')] = el.innerHTML; });
+
+  I18N.en = {
+    'nav.tab': 'COMMAND',
+    'nav.sub.home': 'Top',
+    'nav.sub.story': 'Our Story',
+    'nav.sub.menu': 'Popular Dishes',
+    'nav.sub.instagram': 'Latest Posts',
+    'nav.sub.access': 'Visit Us',
+    'nav.sub.event': "Nakara's Ennichi",
+    'nav.sub.album': 'A Page of This Place',
+    'album.back': 'Back to Nakara’s Ennichi',
+    'album.kicker': '📖 A Page of This Place.',
+    'album.title': 'Nakara’s Ennichi.',
+    'album.intro': 'Just a little of the time<br>that flowed through this place, that day.',
+    'album.s1': 'Today is a little bit different from any other day.<br>Paper streamers hang outside the shop, and a portable shrine passes through town.<br>The kids are waiting, so excited for it to arrive.',
+    'album.s2': 'Upstairs, students from Matsumoto University became teachers for the day, making slime and drawing pictures together with the kids.<br>The children who were nervous at first were all smiles by the time they went home.',
+    'album.s3': 'Downstairs, the moms and dads take it slow over a drink.<br>Listening to the kids laughing upstairs, they get a little bit of their own time too.<br>That’s the kind of day it became.',
+    'album.s4': 'By the time the event wound down, the students and staff were all a little tired — but still smiling.<br>Everyone raised a glass together at the end.<br>One more memory added to this place.',
+    'album.outro1': 'This day, too,<br>became one more piece of Nakara’s history.',
+    'album.outro2': 'For the rest of the story,<br>come to the shop.',
+    'footer.echo': 'Sake, laughter,<br><em>this is your place.</em>',
+    'footer.thanks': '“That was fun.”',
+    'footer.msg': 'That’s the one line we stay open for, every night.<br>Come back and see us again.',
+    'footer.callBtn': 'Reserve by Phone',
+    'footer.lineBtn': 'LINE Reservation (Coming Soon)',
+    'footer.bottomP1': 'Nakara, Haikara. 4-7-9 Ote, Matsumoto, Nagano — Nakara Haikara.',
+    'footer.copyright': 'Nakara Haikara. All rights reserved.',
+    'brand.signature': 'In the end,<br>just one more detour.'
+  };
+
+  var langSwitch = document.getElementById('langSwitch');
+  function applyLang(lang){
+    var dict = I18N[lang] || I18N.ja;
+    i18nEls.forEach(function(el){
+      var key = el.getAttribute('data-i18n');
+      if(dict[key] != null){ el.innerHTML = dict[key]; }
+    });
+    document.documentElement.lang = lang;
+    if(langSwitch){
+      langSwitch.querySelectorAll('.lang-btn').forEach(function(btn){
+        btn.classList.toggle('is-active', btn.getAttribute('data-lang') === lang);
+      });
+    }
+  }
+  var savedLang = null;
+  try{ savedLang = localStorage.getItem(LANG_KEY); }catch(err){}
+  applyLang(savedLang === 'en' ? 'en' : 'ja');
+
+  if(langSwitch){
+    langSwitch.addEventListener('click', function(e){
+      var btn = e.target.closest('.lang-btn');
+      if(!btn) return;
+      var lang = btn.getAttribute('data-lang');
+      applyLang(lang);
+      try{ localStorage.setItem(LANG_KEY, lang); }catch(err){}
+    });
+  }
+
+  // ===== Vercel Analytics: custom click events =====
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('a');
+    if(!a || typeof window.va !== 'function') return;
+    var href = a.getAttribute('href') || '';
+    if(href.indexOf('tel:') === 0){
+      window.va('event', {name:'phone_click'});
+    } else if(href.indexOf('instagram.com') !== -1){
+      window.va('event', {name:'instagram_click'});
+    }
+  });
+})();
+</script>
+</body>
+</html>

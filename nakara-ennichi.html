@@ -667,6 +667,12 @@ section{position:relative;}
   font-family:var(--serif); color:var(--cream-dim); font-size:.92rem; line-height:1.9;
   margin-top:1.6rem;
 }
+.album-teaser{
+  display:inline-block; margin-top:2.4rem; font-family:var(--pixel); font-size:.72rem;
+  letter-spacing:.05em; color:var(--lantern); border-bottom:1px dashed rgba(240,208,154,.5);
+  padding-bottom:.3rem; transition:color .2s ease, border-color .2s ease;
+}
+.album-teaser:hover{color:var(--white); border-color:var(--white);}
 
 </style>
 
@@ -694,11 +700,12 @@ section{position:relative;}
     <span class="win-tab" data-i18n="nav.tab">コマンド</span>
     <ul>
       <li><a href="index.html#home" class="nav-link">HOME<span class="sub" data-i18n="nav.sub.home">トップ</span></a></li>
+      <li><a href="nakara-ennichi.html" class="nav-link">EVENT<span class="sub" data-i18n="nav.sub.event">ナカラの縁日</span></a></li>
+      <li><a href="ichipage-ennichi.html" class="nav-link">ALBUM<span class="sub" data-i18n="nav.sub.album">この場所の1ページ。</span></a></li>
       <li><a href="index.html#story" class="nav-link">STORY<span class="sub" data-i18n="nav.sub.story">ナカラハイカラ。とは</span></a></li>
       <li><a href="index.html#menu" class="nav-link">MENU<span class="sub" data-i18n="nav.sub.menu">人気メニュー</span></a></li>
-      <li><a href="index.html#sports" class="nav-link">SPORTS<span class="sub" data-i18n="nav.sub.sports">スポーツ観戦</span></a></li>
+      <li><a href="index.html#instagram" class="nav-link">INSTAGRAM<span class="sub" data-i18n="nav.sub.instagram">最新の投稿</span></a></li>
       <li><a href="index.html#access" class="nav-link">ACCESS<span class="sub" data-i18n="nav.sub.access">店舗情報</span></a></li>
-      <li><a href="nakara-ennichi.html" class="nav-link">EVENT<span class="sub" data-i18n="nav.sub.event">ナカラの縁日</span></a></li>
     </ul>
   </div>
 </nav>
@@ -810,6 +817,7 @@ section{position:relative;}
   <div class="wrap">
     <a href="#bulletin" class="btn btn-primary ennichi-cta" data-i18n="ennichi.ctaBtn">笑いチャージしにいく。</a>
     <p class="cta-echo" data-i18n="ennichi.ctaEcho">きっと帰る頃には、<br>少しだけ子どもに戻ってる。</p>
+    <a href="ichipage-ennichi.html" class="album-teaser reveal" data-i18n="ennichi.albumTeaser">📖 あの日の記録を見る ―この場所の1ページ。</a>
   </div>
 </section>
 
@@ -896,9 +904,10 @@ section{position:relative;}
     'nav.sub.home': 'Top',
     'nav.sub.story': 'Our Story',
     'nav.sub.menu': 'Popular Dishes',
-    'nav.sub.sports': 'Sports Viewing',
+    'nav.sub.instagram': 'Latest Posts',
     'nav.sub.access': 'Visit Us',
     'nav.sub.event': "Nakara's Ennichi",
+    'nav.sub.album': 'A Page of This Place',
     'ennichi.back': 'Back to Nakara Haikara',
     'ennichi.kicker': 'BRAND STORY No.002 — Nakara\u2019s Ennichi',
     'ennichi.title': 'A place where<br>grown-ups<br>get their childhood back.',
@@ -932,6 +941,7 @@ section{position:relative;}
     'ennichi.applyOrg': 'Via Matsumoto University volunteer group \u201cMarushiba\u201d',
     'ennichi.ctaBtn': 'Go recharge your laughter.',
     'ennichi.ctaEcho': 'By the time you head home,<br>you might be a little bit of a kid again.',
+    'ennichi.albumTeaser': '📖 See how that day looked — A Page of This Place.',
     'footer.echo': 'Sake, laughter,<br><em>this is your place.</em>',
     'footer.thanks': '\u201cThat was fun.\u201d',
     'footer.msg': 'That\u2019s the one line we stay open for, every night.<br>Come back and see us again.',
