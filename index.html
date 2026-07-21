@@ -376,6 +376,10 @@ section{position:relative;}
    「この場所の1ページ。」(ichipage-*.html) as a memory and put this
    board back into its idle "coming soon" state — this board is for
    "これから", the ichipage series is for "これまで".
+   The #event-teaser section (below, id="event-teaser") shows the same
+   .hb-frame/.hb-paper markup at a larger size via .event-card — keep
+   its .hb-tag/.hb-title/.hb-body/.hb-soon content identical to this
+   hero widget's when updating either one.
    ===================================================================== */
 .hero-bulletin{
   position:absolute; top:5.4rem; right:var(--gap); z-index:3;
@@ -415,6 +419,18 @@ section{position:relative;}
   display:block; text-align:center; font-family:var(--pixel); font-size:.6rem; letter-spacing:.1em; color:var(--red-dark);
   opacity:.85; padding-top:.65rem; border-top:1px dashed rgba(184,32,44,.35);
 }
+
+/* Same bulletin-board paper as .hero-bulletin, sized for a standalone
+   section instead of the hero's corner — the "EVENT" homepage teaser. */
+.event-card{
+  display:block; max-width:340px; margin:2.6rem auto 0;
+  transform:rotate(-1deg); transition:transform .25s ease;
+}
+.event-card:hover{transform:rotate(0deg) scale(1.03);}
+.event-card .hb-frame{padding:.7rem;}
+.event-card .hb-paper{padding:1.5rem 1.3rem 1.3rem;}
+.event-card .hb-title{font-size:1.1rem;}
+.event-card .hb-body{font-size:.68rem;}
 .hb-row{font-family:var(--pixel); font-size:.58rem; color:#5b4327; line-height:1.7; margin-bottom:.55rem;}
 .hb-row b{
   display:block; color:var(--red-dark); font-weight:400; letter-spacing:.08em; font-size:.9em; margin-bottom:.15em;
@@ -745,10 +761,10 @@ section{position:relative;}
     <span class="win-tab" data-i18n="nav.tab">コマンド</span>
     <ul>
       <li><a href="#home" class="nav-link">HOME<span class="sub" data-i18n="nav.sub.home">トップ</span></a></li>
+      <li><a href="#menu" class="nav-link">MENU<span class="sub" data-i18n="nav.sub.menu">人気メニュー</span></a></li>
       <li><a href="nakara-ennichi.html" class="nav-link">EVENT<span class="sub" data-i18n="nav.sub.event">ナカラの縁日</span></a></li>
       <li><a href="ichipage-ennichi.html" class="nav-link">ALBUM<span class="sub" data-i18n="nav.sub.album">この場所の1ページ。</span></a></li>
       <li><a href="#story" class="nav-link">STORY<span class="sub" data-i18n="nav.sub.story">ナカラハイカラ。とは</span></a></li>
-      <li><a href="#menu" class="nav-link">MENU<span class="sub" data-i18n="nav.sub.menu">人気メニュー</span></a></li>
       <li><a href="#access" class="nav-link">ACCESS<span class="sub" data-i18n="nav.sub.access">店舗情報</span></a></li>
     </ul>
   </div>
@@ -932,44 +948,6 @@ section{position:relative;}
   </div>
 </section>
 
-<!-- ===================== Story ===================== -->
-<section class="section" id="story">
-  <div class="grain"></div>
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="kicker" data-i18n="story.kicker">ナカラハイカラ。とは</span>
-      <h2 class="h2" data-i18n="story.title">名前には、<br>ちょうどいい言い訳がある。</h2>
-    </div>
-
-    <div class="story-grid">
-      <div class="stamp win reveal reveal-delay-1">
-        <span class="win-tab" data-i18n="story.tab1">その1</span>
-        <span class="word-jp">なから</span>
-        <span class="word-en">NAKARA / 信州弁</span>
-        <p data-i18n="story.p1">「<b>だいたい</b>」「<b>ある程度</b>」<br>という意味の、地元の言葉。</p>
-      </div>
-      <div class="story-plus reveal reveal-delay-2">×</div>
-      <div class="stamp win reveal reveal-delay-3">
-        <span class="win-tab" data-i18n="story.tab2">その2</span>
-        <span class="word-jp">はいから</span>
-        <span class="word-en">HAIKARA / 大正時代</span>
-        <p data-i18n="story.p2">「<b>おしゃれ</b>」<br>という意味で使われていた言葉。</p>
-      </div>
-    </div>
-
-    <p class="story-punch reveal" data-i18n="story.punch">
-      超うまい！ではないけど、<span>だいたい旨いし、なんだかおしゃれ。</span><br>
-      肩の力を抜いて、楽しめる居酒屋。
-    </p>
-    <p class="story-sub reveal" data-i18n="story.sub">それが、ナカラハイカラ。</p>
-
-    <div class="story-philosophy reveal reveal-delay-4">
-      <span class="philosophy-kicker" data-i18n="story.philosophyKicker">BRAND PHILOSOPHY</span>
-      <p class="philosophy-line" data-i18n="story.philosophy">寄り道こそ、<br>おもしろい。</p>
-    </div>
-  </div>
-</section>
-
 <!-- ===================== こだわり ===================== -->
 <section class="section section-wood" id="kodawari">
   <div class="stars-bg"></div>
@@ -1066,18 +1044,38 @@ section{position:relative;}
   </div>
 </section>
 
-<!-- Reserved slot: Brand Story "ナカラの縁日" section planned here.
-     Insert a new <section> directly below (between MENU and INSTAGRAM)
-     following the same .section/.wrap/.section-head/reveal pattern
-     used elsewhere on this page. -->
+<!-- ===================== 今のナカラ。(EVENT teaser) ===================== -->
+<section class="section section-wood" id="event-teaser">
+  <div class="stars-bg"></div>
+  <div class="grain"></div>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker" data-i18n="eventTeaser.kicker">今のナカラ。</span>
+      <h2 class="h2" data-i18n="eventTeaser.title">今、ナカラで<br>起きていること。</h2>
+      <p class="section-lead" data-i18n="eventTeaser.lead">次の予定や、営業のお知らせは、ここに届きます。</p>
+    </div>
 
-<!-- ===================== Instagram ===================== -->
+    <a href="nakara-ennichi.html" class="event-card reveal">
+      <div class="hb-frame">
+        <div class="hb-paper">
+          <span class="hb-pin" aria-hidden="true">📌</span>
+          <span class="hb-tag" data-i18n="heroBulletin.tag">ナカラ掲示板。</span>
+          <h3 class="hb-title" data-i18n="heroBulletin.title">次の寄り道、<br>準備中。</h3>
+          <p class="hb-body" data-i18n="heroBulletin.body">現在、次の企画を準備しています。<br>もう少しだけ、お待ちください。</p>
+          <span class="hb-soon" data-i18n="heroBulletin.soon">Coming Soon...</span>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ===================== この場所の1ページ。(ALBUM teaser) ===================== -->
 <section class="section section-dark" id="page-teaser">
   <div class="grain"></div>
   <div class="wrap">
     <div class="section-head reveal">
       <span class="kicker" data-i18n="pageTeaser.kicker">📖 この場所の1ページ。</span>
-      <h2 class="h2" data-i18n="pageTeaser.title">今、ナカラで<br>起きていること。</h2>
+      <h2 class="h2" data-i18n="pageTeaser.title">この場所に、<br>積み重なる日々。</h2>
       <p class="section-lead" data-i18n="pageTeaser.lead">料理だけじゃない。人と人が出会う瞬間を、少しずつ積み重ねています。</p>
     </div>
 
@@ -1091,6 +1089,44 @@ section{position:relative;}
         <p class="page-teaser-text" data-i18n="pageTeaser.entryText">神輿が通り、子どもたちの笑い声が響いた一日。<br>その場所に流れていた時間を、少しだけ。</p>
         <a href="ichipage-ennichi.html" class="btn btn-ghost" data-i18n="pageTeaser.cta">この場所の1ページ。を見る</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== Story ===================== -->
+<section class="section" id="story">
+  <div class="grain"></div>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker" data-i18n="story.kicker">ナカラハイカラ。とは</span>
+      <h2 class="h2" data-i18n="story.title">名前には、<br>ちょうどいい言い訳がある。</h2>
+    </div>
+
+    <div class="story-grid">
+      <div class="stamp win reveal reveal-delay-1">
+        <span class="win-tab" data-i18n="story.tab1">その1</span>
+        <span class="word-jp">なから</span>
+        <span class="word-en">NAKARA / 信州弁</span>
+        <p data-i18n="story.p1">「<b>だいたい</b>」「<b>ある程度</b>」<br>という意味の、地元の言葉。</p>
+      </div>
+      <div class="story-plus reveal reveal-delay-2">×</div>
+      <div class="stamp win reveal reveal-delay-3">
+        <span class="win-tab" data-i18n="story.tab2">その2</span>
+        <span class="word-jp">はいから</span>
+        <span class="word-en">HAIKARA / 大正時代</span>
+        <p data-i18n="story.p2">「<b>おしゃれ</b>」<br>という意味で使われていた言葉。</p>
+      </div>
+    </div>
+
+    <p class="story-punch reveal" data-i18n="story.punch">
+      超うまい！ではないけど、<span>だいたい旨いし、なんだかおしゃれ。</span><br>
+      肩の力を抜いて、楽しめる居酒屋。
+    </p>
+    <p class="story-sub reveal" data-i18n="story.sub">それが、ナカラハイカラ。</p>
+
+    <div class="story-philosophy reveal reveal-delay-4">
+      <span class="philosophy-kicker" data-i18n="story.philosophyKicker">BRAND PHILOSOPHY</span>
+      <p class="philosophy-line" data-i18n="story.philosophy">寄り道こそ、<br>おもしろい。</p>
     </div>
   </div>
 </section>
@@ -1200,6 +1236,7 @@ section{position:relative;}
     </div>
   </div>
 </section>
+
 
 <!-- ===================== Footer ===================== -->
 <footer class="footer">
@@ -1413,8 +1450,11 @@ section{position:relative;}
     'ticket.yen': 'yen',
     'ticket.sheets': '1 ticket = 1 standard drink',
     'ticket.note': 'Draft beer needs<br><b style="color:var(--gold-soft);">2 tickets</b> per glass',
+    'eventTeaser.kicker': 'Nakara, Right Now.',
+    'eventTeaser.title': 'What’s happening<br>at Nakara, right now.',
+    'eventTeaser.lead': 'Upcoming plans and notices from the shop land here.',
     'pageTeaser.kicker': '📖 A Page of This Place.',
-    'pageTeaser.title': 'What’s happening<br>at Nakara, right now.',
+    'pageTeaser.title': 'Days that quietly<br>add up, here.',
     'pageTeaser.lead': 'It’s not just about the food. We’re gathering the moments where people meet, one page at a time.',
     'pageTeaser.entryTitle': 'Nakara’s Ennichi.',
     'pageTeaser.entryText': 'A day when a mikoshi passed through, and kids’ laughter filled the air.<br>Just a little of the time that flowed through this place.',
