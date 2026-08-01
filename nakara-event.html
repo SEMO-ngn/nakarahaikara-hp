@@ -3,22 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>この場所の1ページ。ナカラの縁日 2026.7.11 | ナカラハイカラ。</title>
-<meta name="description" content="2026年7月11日、ナカラハイカラ。で流れていた時間の記録。写真で綴る、この場所のもう一つのページ。">
+<title>ナカラのイベント。| ナカラハイカラ。</title>
+<meta name="description" content="長野県松本市の居酒屋「ナカラハイカラ。」が贈るイベント情報。現在開催中：上土の夏休み。（2026年8月16日・17日）。">
 <meta name="robots" content="index,follow">
-<link rel="canonical" href="https://nakarahaikara-hp.vercel.app/ichipage-ennichi.html">
+<link rel="canonical" href="https://nakarahaikara-hp.vercel.app/nakara-event.html">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="この場所の1ページ。ナカラの縁日 2026.7.11 | ナカラハイカラ。">
-<meta property="og:description" content="2026年7月11日、ナカラハイカラ。で流れていた時間の記録。">
-<meta property="og:image" content="images/ennichi-day-toast.jpg">
-<meta property="og:url" content="https://nakarahaikara-hp.vercel.app/ichipage-ennichi.html">
+<meta property="og:title" content="ナカラのイベント。| ナカラハイカラ。">
+<meta property="og:description" content="現在開催中：上土の夏休み。（2026年8月16日・17日）。竹で遊ぶ。竹を学ぶ。竹で食べる。">
+<meta property="og:image" content="images/agetsuchi-flyer.jpg">
+<meta property="og:url" content="https://nakarahaikara-hp.vercel.app/nakara-event.html">
 <meta property="og:site_name" content="ナカラハイカラ。">
 <meta property="og:locale" content="ja_JP">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="この場所の1ページ。ナカラの縁日 2026.7.11">
-<meta name="twitter:description" content="2026年7月11日、ナカラハイカラ。で流れていた時間の記録。">
-<meta name="twitter:image" content="images/ennichi-day-toast.jpg">
+<meta name="twitter:title" content="ナカラのイベント。| ナカラハイカラ。">
+<meta name="twitter:description" content="現在開催中：上土の夏休み。（2026年8月16日・17日）。">
+<meta name="twitter:image" content="images/agetsuchi-flyer.jpg">
 
 <meta name="theme-color" content="#1a1210">
 <link rel="icon" href="images/favicon.ico" sizes="any">
@@ -97,6 +97,7 @@ section{position:relative;}
   padding:.32rem 1rem; font-family:var(--pixel); font-size:.72rem; letter-spacing:.08em; color:var(--white);
   z-index:2; white-space:nowrap;
 }
+.win{padding-top:2.6rem;}
 
 /* ===== Header ===== */
 .site-header{
@@ -212,93 +213,53 @@ section{position:relative;}
 }
 
 .scroll-cue{
-  position:relative; margin-top:2.6rem; display:flex; flex-direction:column; align-items:center; gap:.4rem;
+  position:relative; display:flex; flex-direction:column; align-items:center; gap:.4rem;
   color:var(--cream-dim); font-family:var(--pixel); font-size:.62rem; letter-spacing:.3em;
 }
 .scroll-cue .arrow{font-family:var(--pixel); color:var(--white); font-size:1rem; animation:blinkY 1.4s ease-in-out infinite;}
 @keyframes blinkY{0%,100%{opacity:.15; transform:translateY(0);}50%{opacity:1; transform:translateY(4px);}}
 
+/* ===== Section shells ===== */
+.section{padding:5.5rem 0;}
+.section-dark{background:var(--black);}
+.section-wood{
+  background:radial-gradient(120% 70% at 50% 0%, rgba(184,32,44,.12), transparent 60%), var(--black);
+}
+.kicker{
+  font-family:var(--pixel); color:var(--lantern); font-size:.85rem; letter-spacing:.15em; margin-bottom:.7rem; display:block;
+}
+.kicker::before{content:"► "; opacity:.85;}
+.h2{
+  font-family:var(--pixel); font-weight:400; font-size:clamp(1.5rem,5vw,2.2rem); color:var(--white); line-height:1.55;
+}
+.section-head{margin-bottom:2.6rem; text-align:center;}
+.section-lead{color:var(--cream-dim); max-width:34em; margin:1rem auto 0; font-size:.95rem;}
+
 /* reveal animation */
-.reveal{opacity:0; transform:translateY(30px) scale(.97); transition:opacity .8s cubic-bezier(.22,1.2,.36,1), transform .8s cubic-bezier(.22,1.2,.36,1);}
+.reveal{opacity:0; transform:translateY(30px) scale(.95); transition:opacity .7s cubic-bezier(.22,1.2,.36,1), transform .7s cubic-bezier(.22,1.2,.36,1);}
 .reveal.is-visible{opacity:1; transform:translateY(0) scale(1);}
-.reveal-delay-1{transition-delay:.14s;}
-.reveal-delay-2{transition-delay:.28s;}
-.reveal-delay-3{transition-delay:.42s;}
+.reveal-delay-1{transition-delay:.1s;}
+.reveal-delay-2{transition-delay:.22s;}
+.reveal-delay-3{transition-delay:.34s;}
 
-.back-link{
-  font-family:var(--pixel); font-size:.68rem; color:var(--cream-dim); letter-spacing:.05em;
-  display:flex; align-items:center; justify-content:center; gap:.4rem; margin-bottom:1.4rem; transition:color .2s ease;
+/* ===== Access-style info list (reused for event details) ===== */
+.info-list{list-style:none; display:flex; flex-direction:column; gap:1.3rem;}
+.info-list li{display:flex; gap:1rem; align-items:flex-start;}
+.info-list .ico{
+  width:40px; height:40px; border-radius:50%; background:var(--black-deep); border:2px solid var(--red-glow);
+  display:flex; align-items:center; justify-content:center; flex:none;
 }
-.back-link:hover{color:var(--white);}
-
-/* ===== Album opening ===== */
-.album-hero{
-  min-height:74svh; display:flex; align-items:center; position:relative; isolation:isolate; overflow:hidden;
-  padding:calc(var(--header-h) + 3rem) 0 3rem;
+.info-list .ico svg{width:18px; height:18px; color:var(--red-glow);}
+.info-list .lbl{font-family:var(--pixel); font-size:.66rem; letter-spacing:.15em; color:var(--gold-soft); font-weight:400; display:block; margin-bottom:.3rem;}
+.info-list .val{color:var(--cream); font-size:.98rem; font-weight:500;}
+.info-list .val b{color:var(--gold-soft); font-weight:700;}
+.info-list .val-note{display:block; margin-top:.35rem; font-size:.76rem; line-height:1.7; color:var(--cream-dim); font-weight:400;}
+.map-thumb{display:block; margin-top:.6rem; max-width:280px;}
+.map-thumb img{
+  width:100%; height:auto; border-radius:8px; border:1px solid rgba(247,243,232,.25);
+  cursor:pointer; transition:transform .2s ease;
 }
-.album-hero-bg{
-  position:absolute; inset:-6% -6%; z-index:-2;
-  background-image:url("images/ennichi-day-street.jpg"), linear-gradient(180deg, #140908 0%, #0b0807 55%, #050403 100%);
-  background-size:cover; background-position:50% 38%; background-repeat:no-repeat;
-  filter:blur(3px) saturate(.9);
-}
-.album-hero-bg::after{
-  content:""; position:absolute; inset:0;
-  background:linear-gradient(180deg, rgba(5,4,3,.72) 0%, rgba(5,4,3,.8) 55%, rgba(5,4,3,.94) 100%);
-}
-.album-hero .lang-switch{top:calc(var(--header-h) + .6rem);}
-@media(max-width:480px){.album-hero .lang-switch{top:calc(var(--header-h) + .3rem);}}
-.album-hero .wrap{position:relative; z-index:1; text-align:center;}
-.album-kicker{
-  font-family:var(--pixel); font-size:.85rem; letter-spacing:.15em; color:var(--lantern); display:inline-block;
-}
-.album-title{
-  font-family:var(--serif); font-weight:800; color:var(--white);
-  font-size:clamp(2rem,7vw,3.1rem); line-height:1.5; margin:1.1rem 0 1.6rem;
-  text-shadow:0 6px 30px rgba(0,0,0,.6);
-}
-.album-date{
-  display:inline-flex; align-items:center; gap:.5rem; font-family:var(--pixel); font-size:.8rem;
-  letter-spacing:.15em; color:var(--lantern); border:2px solid rgba(240,208,154,.4);
-  border-radius:999px; padding:.55rem 1.3rem; margin-bottom:2rem;
-}
-.album-intro{color:var(--cream-dim); font-size:.95rem; line-height:2; max-width:24em; margin:0 auto;}
-
-/* ===== Scenes ===== */
-.scene{padding:5.5rem 0;}
-.scene + .scene{border-top:2px dashed rgba(247,243,232,.14);}
-.scene-num{
-  display:block; font-family:var(--pixel); font-size:.7rem; letter-spacing:.35em; color:var(--lantern);
-  margin-bottom:1.3rem; opacity:.9; text-align:center;
-}
-.scene-text{
-  font-family:var(--serif); font-weight:500; color:var(--cream-dim);
-  font-size:clamp(.95rem,2.6vw,1.05rem); line-height:2.15;
-  max-width:26em; margin:0 auto 3.2rem; padding-left:1.1rem;
-  border-left:2px solid rgba(247,243,232,.16); text-align:left;
-}
-.scene-photos{display:flex; flex-direction:column; align-items:center; gap:3rem;}
-.album-photo{max-width:680px; width:100%;}
-.album-photo img{
-  width:100%; height:auto; display:block; border-radius:3px; border:10px solid var(--white);
-  box-shadow:0 22px 44px rgba(0,0,0,.5), 0 0 0 1px rgba(0,0,0,.25);
-  filter:sepia(.1) saturate(1.05) contrast(1.02);
-}
-.album-photo:nth-child(odd){transform:rotate(-1.2deg); align-self:flex-start; margin-left:2%;}
-.album-photo:nth-child(even){transform:rotate(1deg); align-self:flex-end; margin-right:2%;}
-@media(max-width:640px){
-  .album-photo{align-self:center !important; margin:0 !important; max-width:100%;}
-}
-
-/* ===== Outro ===== */
-.album-outro{padding:6rem 0 2rem; text-align:center;}
-.album-outro-line{
-  font-family:var(--serif); font-weight:700; color:var(--cream); font-size:clamp(1.1rem,3.4vw,1.4rem);
-  line-height:2.1; margin-bottom:1.8rem;
-}
-.album-outro-sub{
-  font-family:var(--brush); color:var(--gold-soft); font-size:1.3rem; line-height:1.9;
-}
+.map-thumb:hover img{transform:scale(1.02);}
 
 /* ===== Footer ===== */
 .footer{
@@ -353,6 +314,90 @@ section{position:relative;}
 @media(min-width:900px){.sticky-cta{display:none;}}
 @media(min-width:900px){body{padding-bottom:0;}}
 @media(max-width:899px){body{padding-bottom:74px;}}
+
+/* ===== Event page additions ===== */
+.back-link{
+  font-family:var(--pixel); font-size:.68rem; color:var(--cream-dim); letter-spacing:.05em;
+  display:inline-flex; align-items:center; gap:.4rem; margin-bottom:1.2rem; transition:color .2s ease;
+}
+.back-link:hover{color:var(--white);}
+
+.event-hero{
+  min-height:78svh; display:flex; align-items:center; position:relative; isolation:isolate; overflow:hidden;
+  padding:calc(var(--header-h) + 3rem) 0 3rem;
+  background:
+    radial-gradient(120% 90% at 50% 0%, rgba(184,32,44,.22), transparent 60%),
+    linear-gradient(180deg,#140908 0%,#0b0807 55%,#050403 100%);
+}
+.event-hero .wrap{position:relative; z-index:1; text-align:center;}
+.event-hero-title{
+  font-family:var(--pixel); font-weight:400; color:var(--white);
+  font-size:clamp(1.8rem,6.6vw,3.1rem); line-height:1.6; margin:1rem 0 1.6rem;
+  text-shadow:0 6px 30px rgba(0,0,0,.6);
+}
+.event-hero-sub{
+  font-family:var(--brush); color:var(--lantern); font-size:clamp(1.1rem,3.4vw,1.5rem); line-height:1.7; margin-bottom:1.4rem;
+}
+.event-hero .lead{color:var(--cream-dim); max-width:28em; margin:0 auto; font-size:.98rem; line-height:1.9;}
+.event-hero .lang-switch{top:calc(var(--header-h) + .6rem);}
+@media(max-width:480px){.event-hero .lang-switch{top:calc(var(--header-h) + .3rem);}}
+.event-hero .scroll-cue{margin-top:2.6rem;}
+
+.bulletin-board{padding:2.4rem 1.8rem 2.2rem; max-width:640px; margin:0 auto;}
+.flyer-pin{max-width:300px; margin:0 auto 2.2rem; position:relative; transform:rotate(-2deg);}
+.flyer-pin img{width:100%; height:auto; display:block; border:6px solid var(--white); border-radius:4px; box-shadow:0 18px 34px rgba(0,0,0,.5), 0 0 0 1px rgba(0,0,0,.3); cursor:pointer; transition:transform .2s ease;}
+.flyer-pin:hover img{transform:scale(1.015);}
+.flyer-pin .pin{position:absolute; top:-16px; left:50%; transform:translateX(-50%) rotate(8deg); font-size:1.7rem; filter:drop-shadow(0 3px 4px rgba(0,0,0,.5));}
+.bulletin-board .info-list{margin-bottom:1.6rem;}
+.bulletin-board .info-list li{border-bottom:1px dashed rgba(247,243,232,.12); padding-bottom:1rem;}
+.bulletin-board .info-list li:last-child{border-bottom:0; padding-bottom:0;}
+.bulletin-note{
+  font-size:.8rem; color:var(--gold-soft); text-align:center; margin:0 0 1.8rem;
+  font-family:var(--pixel); letter-spacing:.03em;
+}
+.bulletin-credit{
+  text-align:center; font-size:.76rem; color:var(--cream-dim); line-height:1.9;
+  border-top:2px dashed rgba(247,243,232,.2); padding-top:1.6rem; margin-top:.4rem;
+}
+
+/* ===== Archive (開催記録) ===== */
+.archive-list{display:flex; flex-direction:column; gap:1rem; max-width:640px; margin:0 auto;}
+.archive-item{
+  display:flex; align-items:center; gap:1.2rem; padding:1.2rem 1.4rem;
+  background:rgba(247,243,232,.04); border:1px solid rgba(247,243,232,.14); border-radius:14px;
+  transition:transform .2s ease, background .2s ease;
+}
+.archive-item:hover{transform:translateX(4px); background:rgba(247,243,232,.07);}
+.archive-item .thumb{
+  width:56px; height:56px; border-radius:10px; object-fit:cover; flex:none;
+  border:2px solid rgba(247,243,232,.3);
+}
+.archive-item .archive-info{flex:1;}
+.archive-item .archive-date{font-family:var(--pixel); font-size:.62rem; letter-spacing:.1em; color:var(--gold-soft); display:block; margin-bottom:.25rem;}
+.archive-item .archive-name{font-size:.95rem; color:var(--cream); font-weight:700;}
+.archive-item .archive-arrow{font-family:var(--pixel); color:var(--cream-dim); font-size:.8rem; flex:none;}
+.archive-note{
+  text-align:center; font-size:.82rem; color:var(--cream-dim); margin-top:2rem; line-height:1.8;
+}
+
+/* Flyer modal — shared lightbox for any bulletin/event image */
+.flyer-modal{
+  position:fixed; inset:0; z-index:2000;
+  background:rgba(5,4,3,.92);
+  display:flex; align-items:center; justify-content:center;
+  padding:2.4rem var(--gap);
+  opacity:0; pointer-events:none; transition:opacity .3s ease;
+}
+.flyer-modal.open{opacity:1; pointer-events:auto;}
+.flyer-modal-inner{position:relative; max-width:min(560px,92vw); max-height:90vh;}
+.flyer-modal-inner img{width:100%; height:auto; max-height:90vh; object-fit:contain; border-radius:8px; box-shadow:0 30px 60px rgba(0,0,0,.6); display:block;}
+.flyer-modal-close{
+  position:absolute; top:-14px; right:-14px; width:38px; height:38px; border-radius:50%;
+  background:var(--red); border:2px solid var(--white); color:var(--white);
+  display:flex; align-items:center; justify-content:center; font-family:var(--pixel); font-size:1.1rem;
+  cursor:pointer; box-shadow:0 6px 14px rgba(0,0,0,.4);
+}
+@media(max-width:480px){ .flyer-modal-close{top:-10px; right:-6px;} }
 </style>
 
 <!-- Vercel Web Analytics: enabled in the Vercel dashboard (Project > Analytics).
@@ -389,8 +434,7 @@ section{position:relative;}
 </nav>
 
 <!-- ===================== Opening ===================== -->
-<section class="album-hero" id="home">
-  <div class="album-hero-bg"></div>
+<section class="event-hero" id="home">
   <div class="stars-bg"></div>
   <div class="grain"></div>
   <div class="lang-switch" id="langSwitch" role="group" aria-label="Language / 言語切り替え">
@@ -398,11 +442,11 @@ section{position:relative;}
     <button type="button" class="lang-btn" data-lang="en">English</button>
   </div>
   <div class="wrap reveal is-visible">
-    <a href="nakara-ennichi.html" class="back-link">◄ <span data-i18n="album.back">ナカラの縁日ページへ</span></a>
-    <span class="album-kicker" data-i18n="album.kicker">📖 この場所の1ページ。</span>
-    <h1 class="album-title" data-i18n="album.title">ナカラの縁日。</h1>
-    <div class="album-date"><span>2026.7.11</span></div>
-    <p class="album-intro" data-i18n="album.intro">その日、この場所に流れていた時間を、<br>少しだけ。</p>
+    <a href="index.html" class="back-link">◄ <span data-i18n="event.back">ナカラハイカラ。トップへ</span></a>
+    <span class="kicker" data-i18n="event.kicker">【イベント開催】ナカラのイベント。</span>
+    <h1 class="event-hero-title" data-i18n="event.h1">竹で遊ぶ。<br>竹を学ぶ。<br>竹で食べる。</h1>
+    <p class="event-hero-sub" data-i18n="event.sub">「上土の夏休み。」8月16日(日)・17日(月)</p>
+    <p class="lead" data-i18n="event.lead">流しそうめんや竹工作など、<br>子どもから大人まで楽しめる体験イベントです。</p>
     <div class="scroll-cue">
       <span class="nakarakun-wrap"><img class="nakarakun nakarakun-sm" src="images/nakarakun-mascot.png" alt="ナカラくん" width="32" height="32" loading="lazy"></span>
       <span>SCROLL</span><span class="arrow">▼</span>
@@ -410,64 +454,101 @@ section{position:relative;}
   </div>
 </section>
 
-<!-- ===================== Scene 1 ===================== -->
-<section class="scene">
-  <div class="wrap">
-    <span class="scene-num">SCENE 01</span>
-    <p class="scene-text reveal" data-i18n="album.s1">今日は少しだけ、いつもと違う日。<br>店の前には紙垂が飾られ、神輿が町を通ります。<br>子どもたちは、神輿が来るのを楽しみに待っています。</p>
-    <div class="scene-photos">
-      <figure class="album-photo reveal"><img src="images/ennichi-day-street.jpg" alt="紙垂が飾られたナカラハイカラの店先を、神輿が通り過ぎていく上土通り" loading="lazy" width="1280" height="960"></figure>
-      <figure class="album-photo reveal reveal-delay-1"><img src="images/ennichi-day-waiting.jpg" alt="紙垂の下がる路地の先、神輿が来るのを背伸びして待つ子どもたち" loading="lazy" width="960" height="1280"></figure>
-      <figure class="album-photo reveal reveal-delay-2"><img src="images/ennichi-day-mikoshi.jpg" alt="上土通りを進む、金色に輝く神輿" loading="lazy" width="1108" height="1477"></figure>
-      <figure class="album-photo reveal reveal-delay-3"><img src="images/ennichi-day-cheering.jpg" alt="神輿を指差し、手を伸ばしてはしゃぐ子どもたち" loading="lazy" width="960" height="1280"></figure>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== Scene 2 ===================== -->
-<section class="scene">
-  <div class="wrap">
-    <span class="scene-num">SCENE 02</span>
-    <p class="scene-text reveal" data-i18n="album.s2">二階では、松本大学の学生たちが先生になり、スライムづくりやお絵描きを一緒に楽しみました。<br>最初は緊張していた子どもたちも、帰る頃には笑顔いっぱいでした。</p>
-    <div class="scene-photos">
-      <figure class="album-photo reveal"><img src="images/ennichi-day-prep.jpg" alt="風船で飾られた二階の座敷で、準備をする学生たちと子ども" loading="lazy" width="1477" height="1108"></figure>
-      <figure class="album-photo reveal reveal-delay-1"><img src="images/ennichi-day-craft1.jpg" alt="二階の座敷で、学生たちと一緒にスライムづくりを楽しむ子どもたち" loading="lazy" width="1706" height="960"></figure>
-      <figure class="album-photo reveal reveal-delay-2"><img src="images/ennichi-day-craft2.jpg" alt="テーブルを囲み、お絵描きに夢中になる子どもたちと学生スタッフ" loading="lazy" width="1706" height="960"></figure>
-      <figure class="album-photo reveal reveal-delay-3"><img src="images/ennichi-day-craft3.jpg" alt="風船とスライムに囲まれ、笑顔で工作を続ける子どもたちの様子" loading="lazy" width="1706" height="960"></figure>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== Scene 3 ===================== -->
-<section class="scene">
-  <div class="wrap">
-    <span class="scene-num">SCENE 03</span>
-    <p class="scene-text reveal" data-i18n="album.s3">一階では、お父さんやお母さんがドリンクを飲みながら、ゆっくりとした時間を過ごします。<br>子どもたちの笑い声を聞きながら、少しだけ自分たちの時間も楽しめる。<br>そんな一日になりました。</p>
-    <div class="scene-photos">
-      <figure class="album-photo reveal"><img src="images/ennichi-day-room.jpg" alt="ナカラハイカラの店内で、飲み物を片手にゆっくりと過ごす時間" loading="lazy" width="1477" height="1108"></figure>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== Scene 4 ===================== -->
-<section class="scene">
-  <div class="wrap">
-    <span class="scene-num">SCENE 04</span>
-    <p class="scene-text reveal" data-i18n="album.s4">イベントが終わる頃には、学生もスタッフも、みんな少し疲れて、でも笑っていました。<br>最後はみんなで乾杯。<br>また一つ、この場所に思い出が増えました。</p>
-    <div class="scene-photos">
-      <figure class="album-photo reveal"><img src="images/ennichi-day-toast.jpg" alt="学生とスタッフが集まり、グラスを掲げて乾杯する様子" loading="lazy" width="1477" height="1108"></figure>
-      <figure class="album-photo reveal reveal-delay-1"><img src="images/ennichi-day-staff.jpg" alt="厨房でグラスを掲げ、笑顔で乾杯するスタッフ" loading="lazy" width="1108" height="1477"></figure>
-      <figure class="album-photo reveal reveal-delay-2"><img src="images/ennichi-day-group.jpg" alt="ナカラハイカラの店先に集まった、この日の記念集合写真" loading="lazy" width="1170" height="1061"></figure>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== Outro ===================== -->
-<section class="album-outro">
+<!-- ===================== 開催予定 ===================== -->
+<section class="section section-wood" id="upcoming">
+  <div class="stars-bg"></div>
   <div class="grain"></div>
   <div class="wrap">
-    <p class="album-outro-line reveal" data-i18n="album.outro1">この日も、また一つ、<br>ナカラの歴史になりました。</p>
-    <p class="album-outro-sub reveal reveal-delay-1" data-i18n="album.outro2">続きは、<br>お店で。</p>
+    <div class="section-head reveal">
+      <span class="kicker" data-i18n="event.upcomingKicker">開催予定</span>
+      <h2 class="h2" data-i18n="event.upcomingTitle">上土の夏休み。</h2>
+      <p class="section-lead" data-i18n="event.upcomingLead">竹をテーマにした、子どもから大人まで楽しめる体験イベント。</p>
+    </div>
+
+    <div class="bulletin-board win reveal">
+      <span class="win-tab" data-i18n="event.winTab">EVENT</span>
+      <div class="flyer-pin">
+        <span class="pin" aria-hidden="true">📌</span>
+        <a href="images/agetsuchi-flyer.jpg" target="_blank" rel="noopener" data-flyer-trigger>
+          <img src="images/agetsuchi-flyer.jpg" alt="上土の夏休み。イベントチラシ" loading="lazy" width="1024" height="1536">
+        </a>
+      </div>
+      <ul class="info-list">
+        <li>
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span>
+          <div>
+            <span class="lbl" data-i18n="event.lblDate">DATE</span>
+            <span class="val" data-i18n="event.valDate">2026年8月16日（日）・17日（月）</span>
+            <span class="val-note" data-i18n="event.noteWeather">雨天決行／内容は変更になる場合があります</span>
+          </div>
+        </li>
+        <li>
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+          <div>
+            <span class="lbl" data-i18n="event.lblTime">TIME</span>
+            <span class="val" data-i18n="event.valTime">16日(日) 10:00〜19:00（10:00スタート）<br>17日(月) 11:00〜19:00</span>
+          </div>
+        </li>
+        <li>
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <div>
+            <span class="lbl" data-i18n="event.lblPlace">PLACE</span>
+            <span class="val" data-i18n="event.valPlace">上土ふれあいホール</span>
+            <span class="val-note" data-i18n="event.notePlace">松本市中心部・縄手通り／四柱神社のすぐ近く</span>
+            <a class="map-thumb" href="images/agetsuchi-map.jpg" target="_blank" rel="noopener" data-flyer-trigger>
+              <img src="images/agetsuchi-map.jpg" alt="上土ふれあいホールまでの地図" loading="lazy" width="1469" height="908">
+            </a>
+          </div>
+        </li>
+        <li>
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9 9.5a2.5 2.5 0 0 1 2.5-2.5h1a2.5 2.5 0 0 1 0 5h-1a2.5 2.5 0 0 0 0 5h1a2.5 2.5 0 0 0 2.5-2.5"/></svg></span>
+          <div>
+            <span class="lbl" data-i18n="event.lblPrice">PRICE</span>
+            <span class="val" data-i18n="event.valPrice">1家族500円（体験込み）</span>
+            <span class="val-note" data-i18n="event.notePrice">※飲食は別料金です</span>
+          </div>
+        </li>
+        <li>
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 11a8 8 0 0 1 16 0M4 11v7a2 2 0 0 0 2 2h1v-7H4zm14 0v9h1a2 2 0 0 0 2-2v-7h-3z"/></svg></span>
+          <div>
+            <span class="lbl" data-i18n="event.lblContent">CONTENT</span>
+            <span class="val" data-i18n="event.valContent">流しそうめん体験・竹コップづくり・竹で弓づくり・竹の活用ワークショップ<br>飲食エリア：ナカラ鉄板焼き・アルコール・ソフトドリンク</span>
+            <span class="val-note" data-i18n="event.noteSaturday">16日(日)10:00〜は、みんなで流しそうめん台をつくるところからスタート！自由研究にもおすすめです。</span>
+          </div>
+        </li>
+      </ul>
+
+      <p class="bulletin-note" data-i18n="event.noteFree">【予約不要・出入り自由】開催時間内であれば、好きな時間に来て、好きな時間まで自由に楽しめます。</p>
+
+      <p class="bulletin-credit" data-i18n="event.credit">主催：上土のなつやすみ。実行委員会<br>協力：ナカラハイカラ。／松本大学 観光ホスピタリティ学科／上土大正ロマンのまちづくり協議会／カフェ上土</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 開催記録 ===================== -->
+<section class="section section-dark" id="archive">
+  <div class="grain"></div>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker" data-i18n="event.archiveKicker">開催記録</span>
+      <h2 class="h2" data-i18n="event.archiveTitle">これまでの<br>イベント。</h2>
+      <p class="section-lead" data-i18n="event.archiveLead">終わったイベントも、消さずに積み重ねていきます。</p>
+    </div>
+
+    <!-- Archive list — add future past events above this line, newest first.
+         Each entry: 56x56 thumbnail, date, name, link to that event's own
+         report/record page. -->
+    <div class="archive-list reveal">
+      <a href="nakara-ennichi.html" class="archive-item">
+        <img class="thumb" src="images/ennichi-flyer.jpg" alt="ナカラの縁日 2026" loading="lazy" width="56" height="56">
+        <div class="archive-info">
+          <span class="archive-date">2026.7.11</span>
+          <span class="archive-name" data-i18n="event.archive1Name">ナカラの縁日</span>
+        </div>
+        <span class="archive-arrow">►</span>
+      </a>
+    </div>
+    <p class="archive-note" data-i18n="event.archiveNote">当日の様子は「📖 この場所の1ページ。」でも振り返っています。</p>
   </div>
 </section>
 
@@ -514,6 +595,14 @@ section{position:relative;}
   </div>
 </footer>
 
+<!-- ===================== Flyer modal (shared lightbox for .flyer-pin / [data-flyer-trigger] images) ===================== -->
+<div class="flyer-modal" id="flyerModal">
+  <div class="flyer-modal-inner">
+    <button type="button" class="flyer-modal-close" id="flyerModalClose" aria-label="閉じる">✕</button>
+    <img id="flyerModalImg" src="" alt="">
+  </div>
+</div>
+
 <script>
 (function(){
   document.getElementById('year') && (document.getElementById('year').textContent = new Date().getFullYear());
@@ -530,6 +619,37 @@ section{position:relative;}
     navOverlay.classList.toggle('open');
   });
   document.querySelectorAll('.nav-link').forEach(function(a){ a.addEventListener('click', closeNav); });
+
+  // Flyer modal — shared lightbox for any [data-flyer-trigger] (the flyer-pin
+  // link). Real <a href="the image"> for no-JS/graceful fallback; with JS,
+  // the click is intercepted and shown in the modal instead.
+  var flyerModal = document.getElementById('flyerModal');
+  var flyerModalImg = document.getElementById('flyerModalImg');
+  var flyerModalClose = document.getElementById('flyerModalClose');
+  function openFlyerModal(src, alt){
+    flyerModalImg.src = src;
+    flyerModalImg.alt = alt || '';
+    flyerModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeFlyerModal(){
+    flyerModal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('[data-flyer-trigger]').forEach(function(el){
+    el.addEventListener('click', function(e){
+      e.preventDefault();
+      var img = el.querySelector('img');
+      openFlyerModal(el.getAttribute('href'), img ? img.alt : '');
+    });
+  });
+  flyerModalClose.addEventListener('click', closeFlyerModal);
+  flyerModal.addEventListener('click', function(e){
+    if(e.target === flyerModal){ closeFlyerModal(); }
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){ closeFlyerModal(); }
+  });
 
   var revealEls = document.querySelectorAll('.reveal');
   if('IntersectionObserver' in window){
@@ -557,16 +677,36 @@ section{position:relative;}
     'nav.sub.access': 'Visit Us',
     'nav.sub.event': "Nakara's Events",
     'nav.sub.album': 'A Page of This Place',
-    'album.back': 'Back to Nakara’s Ennichi',
-    'album.kicker': '📖 A Page of This Place.',
-    'album.title': 'Nakara’s Ennichi.',
-    'album.intro': 'Just a little of the time<br>that flowed through this place, that day.',
-    'album.s1': 'Today is a little bit different from any other day.<br>Paper streamers hang outside the shop, and a portable shrine passes through town.<br>The kids are waiting, so excited for it to arrive.',
-    'album.s2': 'Upstairs, students from Matsumoto University became teachers for the day, making slime and drawing pictures together with the kids.<br>The children who were nervous at first were all smiles by the time they went home.',
-    'album.s3': 'Downstairs, the moms and dads take it slow over a drink.<br>Listening to the kids laughing upstairs, they get a little bit of their own time too.<br>That’s the kind of day it became.',
-    'album.s4': 'By the time the event wound down, the students and staff were all a little tired — but still smiling.<br>Everyone raised a glass together at the end.<br>One more memory added to this place.',
-    'album.outro1': 'This day, too,<br>became one more piece of Nakara’s history.',
-    'album.outro2': 'For the rest of the story,<br>come to the shop.',
+    'event.back': 'Back to Nakara Haikara',
+    'event.kicker': '[Event Underway] Nakara Events.',
+    'event.h1': 'Play with bamboo.<br>Learn about bamboo.<br>Eat with bamboo.',
+    'event.sub': '"Agetsuchi Summer Days." Aug 16 (Sun) & 17 (Mon)',
+    'event.lead': 'Bamboo water slides and craft-making —<br>a hands-on summer event for kids and adults alike.',
+    'event.upcomingKicker': 'Upcoming',
+    'event.upcomingTitle': 'Agetsuchi Summer Days.',
+    'event.upcomingLead': 'A bamboo-themed, hands-on event for the whole family.',
+    'event.winTab': 'EVENT',
+    'event.lblDate': 'DATE',
+    'event.valDate': 'Sat, Aug 16 & Mon, Aug 17, 2026',
+    'event.noteWeather': 'Rain or shine — details subject to change',
+    'event.lblTime': 'TIME',
+    'event.valTime': 'Aug 16 (Sun) 10:00–19:00 (starts at 10:00)<br>Aug 17 (Mon) 11:00–19:00',
+    'event.lblPlace': 'PLACE',
+    'event.valPlace': 'Agetsuchi Fureai Hall',
+    'event.notePlace': 'Central Matsumoto, right by Nawate-dori & Yohashira Shrine',
+    'event.lblPrice': 'PRICE',
+    'event.valPrice': '¥500 per family (experience included)',
+    'event.notePrice': '※Food & drink priced separately',
+    'event.lblContent': 'CONTENT',
+    'event.valContent': 'Bamboo water slide, bamboo cup-making, bamboo bow-making, bamboo workshop<br>Food area: Nakara teppanyaki, alcohol, soft drinks',
+    'event.noteSaturday': 'Aug 16 (Sun) from 10:00, it all starts with everyone building the water slide together! Great for kids’ summer projects, too.',
+    'event.noteFree': '[No reservation needed — drop in anytime] Come and go freely within the hours above.',
+    'event.credit': 'Organized by: Agetsuchi Summer Committee<br>In cooperation with: Nakara Haikara. / Matsumoto University Tourism & Hospitality Dept. / Agetsuchi Taisho-Roman Neighborhood Association / Cafe Agetsuchi',
+    'event.archiveKicker': 'Archive',
+    'event.archiveTitle': 'Past<br>Events.',
+    'event.archiveLead': 'Finished events stay here — nothing gets deleted.',
+    'event.archive1Name': "Nakara's Ennichi",
+    'event.archiveNote': '📖 You can also look back on that day in "A Page of This Place."',
     'footer.echo': 'Sake, laughter,<br><em>this is your place.</em>',
     'footer.thanks': '“That was fun.”',
     'footer.msg': 'That’s the one line we stay open for, every night.<br>Come back and see us again.',

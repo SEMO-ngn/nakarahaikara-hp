@@ -372,19 +372,29 @@ section{position:relative;}
 
 /* =====================================================================
    Nakara bulletin board — reusable "what's next" teaser component.
-   Default/idle state: .hb-tag + .hb-title + .hb-body + .hb-soon (a
-   "coming soon" note — no event running, nothing to link to yet).
-   When a new event/notice is ready: swap .hb-body + .hb-soon for
-   .hb-row (date/time/place) + .hb-price + .hb-btn (see git history for
-   the exact markup used for "ナカラの縁日"), and point the button at
-   that event's own page. Once an event ends, move it into
-   「この場所の1ページ。」(ichipage-*.html) as a memory and put this
-   board back into its idle "coming soon" state — this board is for
-   "これから", the ichipage series is for "これまで".
+   Three interchangeable body states, swap in/out as needed:
+     - Idle/no event: .hb-tag + .hb-title + .hb-body + .hb-soon
+       ("coming soon", nothing to link to — see git history before
+       2026-07-31 for the exact markup).
+     - Text event details: .hb-row (date/time/place) + .hb-price +
+       .hb-btn (see git history for "ナカラの縁日"'s markup).
+     - Flyer image (current, as of 2026-08-01): .hb-flyer (an <a
+       href="[flyer image]" data-flyer-trigger> wrapping the <img>, opens
+       in the shared #flyerModal lightbox via JS, falls back to opening
+       the image directly with JS disabled), plus an .hb-btn linking to
+       the event's own page (nakara-event.html).
+   CURRENT POSTING: 「上土の夏休み。」(images/agetsuchi-flyer.jpg),
+   2026-08-16 & 2026-08-17, full details at nakara-event.html. Swap back
+   to the idle "coming soon" state after 2026-08-17 (or replace with the
+   next event) — this board is for "これから", the ichipage series
+   (「この場所の1ページ。」) is for "これまで", so once an event has
+   happened, move its record into nakara-event.html's 開催記録 (archive)
+   section and/or the ichipage series as a memory.
    The #event-teaser section (below, id="event-teaser") shows the same
-   .hb-frame/.hb-paper markup at a larger size via .event-card — keep
-   its .hb-tag/.hb-title/.hb-body/.hb-soon content identical to this
-   hero widget's when updating either one.
+   .hb-frame/.hb-paper markup at a larger size via .event-card, with the
+   fuller write-up (.hb-body, reusing the idle state's class) instead of
+   this hero widget's compact .hb-caption — both link to the same
+   nakara-event.html and should reference the same posting.
    ===================================================================== */
 .hero-bulletin{
   position:absolute; top:5.4rem; right:var(--gap); z-index:3;
@@ -424,6 +434,37 @@ section{position:relative;}
   display:block; text-align:center; font-family:var(--pixel); font-size:.6rem; letter-spacing:.1em; color:var(--red-dark);
   opacity:.85; padding-top:.65rem; border-top:1px dashed rgba(184,32,44,.35);
 }
+.hb-flyer{display:block; margin:.3rem 0 .7rem;}
+.hb-flyer img{
+  width:100%; height:auto; display:block; border:5px solid var(--white); border-radius:4px;
+  box-shadow:0 10px 22px rgba(0,0,0,.4), 0 0 0 1px rgba(0,0,0,.25);
+  cursor:pointer; transition:transform .2s ease;
+}
+.hb-flyer:hover img{transform:scale(1.02);}
+/* Hero corner widget stays compact — a cropped peek of the flyer's top,
+   not the full tall poster; .event-card (the larger section version)
+   shows it uncropped since that card has the room. */
+.hero-bulletin .hb-flyer img{height:130px; object-fit:cover; object-position:top;}
+.hb-caption{font-family:var(--pixel); font-size:.56rem; color:#5b4327; line-height:1.7; text-align:center;}
+
+/* Flyer modal — shared lightbox for any bulletin/event image (see .hb-flyer) */
+.flyer-modal{
+  position:fixed; inset:0; z-index:2000;
+  background:rgba(5,4,3,.92);
+  display:flex; align-items:center; justify-content:center;
+  padding:2.4rem var(--gap);
+  opacity:0; pointer-events:none; transition:opacity .3s ease;
+}
+.flyer-modal.open{opacity:1; pointer-events:auto;}
+.flyer-modal-inner{position:relative; max-width:min(560px,92vw); max-height:90vh;}
+.flyer-modal-inner img{width:100%; height:auto; max-height:90vh; object-fit:contain; border-radius:8px; box-shadow:0 30px 60px rgba(0,0,0,.6); display:block;}
+.flyer-modal-close{
+  position:absolute; top:-14px; right:-14px; width:38px; height:38px; border-radius:50%;
+  background:var(--red); border:2px solid var(--white); color:var(--white);
+  display:flex; align-items:center; justify-content:center; font-family:var(--pixel); font-size:1.1rem;
+  cursor:pointer; box-shadow:0 6px 14px rgba(0,0,0,.4);
+}
+@media(max-width:480px){ .flyer-modal-close{top:-10px; right:-6px;} }
 
 /* Same bulletin-board paper as .hero-bulletin, sized for a standalone
    section instead of the hero's corner — the "EVENT" homepage teaser. */
@@ -768,7 +809,7 @@ section{position:relative;}
     <ul>
       <li><a href="#home" class="nav-link">HOME<span class="sub" data-i18n="nav.sub.home">トップ</span></a></li>
       <li><a href="#menu" class="nav-link">MENU<span class="sub" data-i18n="nav.sub.menu">人気メニュー</span></a></li>
-      <li><a href="nakara-ennichi.html" class="nav-link">EVENT<span class="sub" data-i18n="nav.sub.event">ナカラの縁日</span></a></li>
+      <li><a href="nakara-event.html" class="nav-link">EVENT<span class="sub" data-i18n="nav.sub.event">ナカラのイベント</span></a></li>
       <li><a href="ichipage-ennichi.html" class="nav-link">ALBUM<span class="sub" data-i18n="nav.sub.album">この場所の1ページ。</span></a></li>
       <li><a href="#story" class="nav-link">STORY<span class="sub" data-i18n="nav.sub.story">ナカラハイカラ。とは</span></a></li>
       <li><a href="#access" class="nav-link">ACCESS<span class="sub" data-i18n="nav.sub.access">店舗情報</span></a></li>
@@ -941,9 +982,12 @@ section{position:relative;}
       <div class="hb-paper">
         <span class="hb-pin" aria-hidden="true">📌</span>
         <span class="hb-tag" data-i18n="heroBulletin.tag">ナカラ掲示板。</span>
-        <h3 class="hb-title" data-i18n="heroBulletin.title">次の寄り道、<br>準備中。</h3>
-        <p class="hb-body" data-i18n="heroBulletin.body">現在、次の企画を準備しています。<br>もう少しだけ、お待ちください。</p>
-        <span class="hb-soon" data-i18n="heroBulletin.soon">Coming Soon...</span>
+        <h3 class="hb-title" data-i18n="heroBulletin.title">上土の夏休み。</h3>
+        <a class="hb-flyer" href="images/agetsuchi-flyer.jpg" target="_blank" rel="noopener" data-flyer-trigger>
+          <img src="images/agetsuchi-flyer.jpg" alt="上土の夏休み。イベントチラシ" loading="lazy" width="1024" height="1536">
+        </a>
+        <p class="hb-caption" data-i18n="heroBulletin.caption">8/16(日)・17(月)開催<br>タップで拡大</p>
+        <a href="nakara-event.html" class="hb-btn" data-i18n="heroBulletin.btn">イベント詳細を見る</a>
       </div>
     </div>
   </div>
@@ -1065,17 +1109,20 @@ section{position:relative;}
       <p class="section-lead" data-i18n="eventTeaser.lead">次の予定や、営業のお知らせは、ここに届きます。</p>
     </div>
 
-    <a href="nakara-ennichi.html" class="event-card reveal">
+    <div class="event-card reveal">
       <div class="hb-frame">
         <div class="hb-paper">
           <span class="hb-pin" aria-hidden="true">📌</span>
           <span class="hb-tag" data-i18n="heroBulletin.tag">ナカラ掲示板。</span>
-          <h3 class="hb-title" data-i18n="heroBulletin.title">次の寄り道、<br>準備中。</h3>
-          <p class="hb-body" data-i18n="heroBulletin.body">現在、次の企画を準備しています。<br>もう少しだけ、お待ちください。</p>
-          <span class="hb-soon" data-i18n="heroBulletin.soon">Coming Soon...</span>
+          <h3 class="hb-title" data-i18n="heroBulletin.title">上土の夏休み。</h3>
+          <a class="hb-flyer" href="images/agetsuchi-flyer.jpg" target="_blank" rel="noopener" data-flyer-trigger>
+            <img src="images/agetsuchi-flyer.jpg" alt="上土の夏休み。イベントチラシ" loading="lazy" width="1024" height="1536">
+          </a>
+          <p class="hb-body" data-i18n="heroBulletin.desc">8月16日(日)・17日(月)開催！<br>今年の夏、上土で竹をテーマにした体験イベントを開催します。<br><br>流しそうめん、竹コップづくり、竹の弓づくりなど、<br>子どもから大人まで楽しめる夏の体験イベントです。<br><br>16日(日)は、<br>みんなで流しそうめん台を組み立てるところからスタート！<br><br>自由研究にもおすすめです。<br><br>【予約不要・出入り自由】</p>
+          <a href="nakara-event.html" class="hb-btn" data-i18n="heroBulletin.btn">イベント詳細を見る</a>
         </div>
       </div>
-    </a>
+    </div>
   </div>
 </section>
 
@@ -1292,6 +1339,14 @@ section{position:relative;}
   </div>
 </footer>
 
+<!-- ===================== Flyer modal (shared lightbox for .hb-flyer images) ===================== -->
+<div class="flyer-modal" id="flyerModal">
+  <div class="flyer-modal-inner">
+    <button type="button" class="flyer-modal-close" id="flyerModalClose" aria-label="閉じる">✕</button>
+    <img id="flyerModalImg" src="" alt="">
+  </div>
+</div>
+
 <!-- ===================== Sticky mobile CTA ===================== -->
 <div class="sticky-cta" id="stickyCta">
   <a href="tel:08029472582" class="btn btn-primary">
@@ -1385,6 +1440,37 @@ section{position:relative;}
     a.addEventListener('click', closeNav);
   });
 
+  // Flyer modal — shared lightbox for any [data-flyer-trigger] (e.g. .hb-flyer
+  // links). Each trigger is a real <a href="the image"> for no-JS/graceful
+  // fallback; with JS, the click is intercepted and shown in the modal instead.
+  var flyerModal = document.getElementById('flyerModal');
+  var flyerModalImg = document.getElementById('flyerModalImg');
+  var flyerModalClose = document.getElementById('flyerModalClose');
+  function openFlyerModal(src, alt){
+    flyerModalImg.src = src;
+    flyerModalImg.alt = alt || '';
+    flyerModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeFlyerModal(){
+    flyerModal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('[data-flyer-trigger]').forEach(function(el){
+    el.addEventListener('click', function(e){
+      e.preventDefault();
+      var img = el.querySelector('img');
+      openFlyerModal(el.getAttribute('href'), img ? img.alt : '');
+    });
+  });
+  flyerModalClose.addEventListener('click', closeFlyerModal);
+  flyerModal.addEventListener('click', function(e){
+    if(e.target === flyerModal){ closeFlyerModal(); }
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){ closeFlyerModal(); }
+  });
+
   // scroll reveal
   var revealEls = document.querySelectorAll('.reveal');
   if('IntersectionObserver' in window){
@@ -1420,7 +1506,7 @@ section{position:relative;}
     'nav.sub.story': 'Our Story',
     'nav.sub.menu': 'Popular Dishes',
     'nav.sub.access': 'Visit Us',
-    'nav.sub.event': "Nakara's Ennichi",
+    'nav.sub.event': "Nakara's Events",
     'nav.sub.album': 'A Page of This Place',
     'story.kicker': 'What’s a “Nakara Haikara”?',
     'story.title': 'Every name<br>needs a good excuse.',
@@ -1503,9 +1589,10 @@ section{position:relative;}
     'mascot.menuPick': 'Nakara-kun’s<br>Pick!',
     'mascot.reservePick': 'We can’t wait<br>to see you!',
     'heroBulletin.tag': 'Nakara Bulletin.',
-    'heroBulletin.title': 'The next detour is<br>on its way.',
-    'heroBulletin.body': 'We’re putting together what’s next.<br>Just a little while longer.',
-    'heroBulletin.soon': 'Coming Soon...'
+    'heroBulletin.title': 'Agetsuchi Summer Days.',
+    'heroBulletin.caption': 'Aug 16 (Sun) & 17 (Mon)<br>Tap to enlarge',
+    'heroBulletin.desc': 'Happening Aug 16 (Sun) & 17 (Mon)!<br>This summer, Agetsuchi hosts a hands-on bamboo event.<br><br>Bamboo water slides, cup-making, bow-making, and more —<br>a summer experience for kids and adults alike.<br><br>On the 16th (Sun),<br>it all starts with everyone building the somen slide together!<br><br>Great for kids’ summer projects, too.<br><br>[No reservation needed — drop in anytime]',
+    'heroBulletin.btn': 'See Event Details'
   };
 
   var langSwitch = document.getElementById('langSwitch');
