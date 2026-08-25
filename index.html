@@ -378,18 +378,22 @@ section{position:relative;}
        2026-07-31 for the exact markup).
      - Text event details: .hb-row (date/time/place) + .hb-price +
        .hb-btn (see git history for "ナカラの縁日"'s markup).
-     - Flyer image (current, as of 2026-08-01): .hb-flyer (an <a
-       href="[flyer image]" data-flyer-trigger> wrapping the <img>, opens
+     - Photo + short recap (current, as of 2026-08-18): .hb-flyer (an <a
+       href="[photo]" data-flyer-trigger> wrapping the <img>, opens
        in the shared #flyerModal lightbox via JS, falls back to opening
        the image directly with JS disabled), plus an .hb-btn linking to
-       the event's own page (nakara-event.html).
-   CURRENT POSTING: 「上土の夏休み。」(images/agetsuchi-flyer.jpg),
-   2026-08-16 & 2026-08-17, full details at nakara-event.html. Swap back
-   to the idle "coming soon" state after 2026-08-17 (or replace with the
-   next event) — this board is for "これから", the ichipage series
-   (「この場所の1ページ。」) is for "これまで", so once an event has
-   happened, move its record into nakara-event.html's 開催記録 (archive)
-   section and/or the ichipage series as a memory.
+       the event's own page (nakara-event.html). Works the same for a
+       forward-looking flyer or a retrospective photo — just swap the
+       image + one line of text.
+   CURRENT POSTING: 「上土の夏休み。」— now a recap (images/agetsuchi-
+   day-cup.jpg) since the 2026-08-16/17 event has happened; nakara-
+   event.html itself is intentionally untouched here (still shows the
+   forward-looking 開催予定 listing — update it separately when ready).
+   Swap this board back to the idle "coming soon" state once the next
+   notice is ready — this board is for "これから", the ichipage series
+   (「この場所の1ページ。」) is for "これまで", so an event's fuller
+   record belongs in nakara-event.html's 開催記録 (archive) section
+   and/or the ichipage series as a memory.
    The #event-teaser section (below, id="event-teaser") shows the same
    .hb-frame/.hb-paper markup at a larger size via .event-card, with the
    fuller write-up (.hb-body, reusing the idle state's class) instead of
@@ -983,10 +987,10 @@ section{position:relative;}
         <span class="hb-pin" aria-hidden="true">📌</span>
         <span class="hb-tag" data-i18n="heroBulletin.tag">ナカラ掲示板。</span>
         <h3 class="hb-title" data-i18n="heroBulletin.title">上土の夏休み。</h3>
-        <a class="hb-flyer" href="images/agetsuchi-flyer.jpg" target="_blank" rel="noopener" data-flyer-trigger>
-          <img src="images/agetsuchi-flyer.jpg" alt="上土の夏休み。イベントチラシ" loading="lazy" width="1414" height="2000">
+        <a class="hb-flyer" href="images/agetsuchi-day-cup.jpg" target="_blank" rel="noopener" data-flyer-trigger>
+          <img src="images/agetsuchi-day-cup.jpg" alt="竹のコップでうれしそうに飲む女の子" loading="lazy" width="1280" height="960">
         </a>
-        <p class="hb-caption" data-i18n="heroBulletin.caption">8/16(日)・17(月)開催<br>タップで拡大</p>
+        <p class="hb-caption" data-i18n="heroBulletin.caption">竹で遊んで、食べて、<br>学んだ2日間。</p>
         <a href="nakara-event.html" class="hb-btn" data-i18n="heroBulletin.btn">イベント詳細を見る</a>
       </div>
     </div>
@@ -1115,10 +1119,10 @@ section{position:relative;}
           <span class="hb-pin" aria-hidden="true">📌</span>
           <span class="hb-tag" data-i18n="heroBulletin.tag">ナカラ掲示板。</span>
           <h3 class="hb-title" data-i18n="heroBulletin.title">上土の夏休み。</h3>
-          <a class="hb-flyer" href="images/agetsuchi-flyer.jpg" target="_blank" rel="noopener" data-flyer-trigger>
-            <img src="images/agetsuchi-flyer.jpg" alt="上土の夏休み。イベントチラシ" loading="lazy" width="1414" height="2000">
+          <a class="hb-flyer" href="images/agetsuchi-day-cup.jpg" target="_blank" rel="noopener" data-flyer-trigger>
+            <img src="images/agetsuchi-day-cup.jpg" alt="竹のコップでうれしそうに飲む女の子" loading="lazy" width="1280" height="960">
           </a>
-          <p class="hb-body" data-i18n="heroBulletin.desc">8月16日(日)・17日(月)開催！<br>今年の夏、上土で竹をテーマにした体験イベントを開催します。<br><br>流しそうめん、竹コップづくり、竹の弓づくりなど、<br>子どもから大人まで楽しめる夏の体験イベントです。<br><br>16日(日)は、<br>みんなで流しそうめん台を組み立てるところからスタート！<br><br>自由研究にもおすすめです。<br><br>【予約不要・出入り自由】</p>
+          <p class="hb-body" data-i18n="heroBulletin.desc">竹で遊んで、食べて、学んだ2日間。</p>
           <a href="nakara-event.html" class="hb-btn" data-i18n="heroBulletin.btn">イベント詳細を見る</a>
         </div>
       </div>
@@ -1590,8 +1594,8 @@ section{position:relative;}
     'mascot.reservePick': 'We can’t wait<br>to see you!',
     'heroBulletin.tag': 'Nakara Bulletin.',
     'heroBulletin.title': 'Agetsuchi Summer Days.',
-    'heroBulletin.caption': 'Aug 16 (Sun) & 17 (Mon)<br>Tap to enlarge',
-    'heroBulletin.desc': 'Happening Aug 16 (Sun) & 17 (Mon)!<br>This summer, Agetsuchi hosts a hands-on bamboo event.<br><br>Bamboo water slides, cup-making, bow-making, and more —<br>a summer experience for kids and adults alike.<br><br>On the 16th (Sun),<br>it all starts with everyone building the somen slide together!<br><br>Great for kids’ summer projects, too.<br><br>[No reservation needed — drop in anytime]',
+    'heroBulletin.caption': 'Two days of bamboo —<br>playing, eating, learning.',
+    'heroBulletin.desc': 'Two days of bamboo — playing, eating, learning.',
     'heroBulletin.btn': 'See Event Details'
   };
 
