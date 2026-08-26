@@ -372,33 +372,30 @@ section{position:relative;}
 
 /* =====================================================================
    Nakara bulletin board — reusable "what's next" teaser component.
+   Role: this board (and nakara-event.html) is for 「これから」— what's
+   coming up next. Once an event ends, remove it from here and record
+   it in 「この場所の1ページ。」(ichipage-*.html) instead, which is for
+   「これまで」— what's already happened.
    Three interchangeable body states, swap in/out as needed:
-     - Idle/no event: .hb-tag + .hb-title + .hb-body + .hb-soon
-       ("coming soon", nothing to link to — see git history before
-       2026-07-31 for the exact markup).
+     - Idle/no event (CURRENT, as of 2026-08-26): .hb-tag + .hb-title +
+       .hb-body only — no photo, no button, nothing to link to yet.
+       Deliberately not a generic "Coming Soon" badge — just the one
+       line of copy ("次の寄り道、考え中。" / "また何か思いついたら、
+       ここに貼ります。") plus empty space. Same markup/copy is reused
+       verbatim in the #event-teaser card below and in nakara-event.html's
+       開催予定 slot — update all three together via the shared
+       heroBulletin.title / heroBulletin.note i18n keys.
      - Text event details: .hb-row (date/time/place) + .hb-price +
        .hb-btn (see git history for "ナカラの縁日"'s markup).
-     - Photo + short recap (current, as of 2026-08-18): .hb-flyer (an <a
-       href="[photo]" data-flyer-trigger> wrapping the <img>, opens
-       in the shared #flyerModal lightbox via JS, falls back to opening
-       the image directly with JS disabled), plus an .hb-btn linking to
-       the event's own page (nakara-event.html). Works the same for a
-       forward-looking flyer or a retrospective photo — just swap the
-       image + one line of text.
-   CURRENT POSTING: 「上土の夏休み。」— now a recap (images/agetsuchi-
-   day-cup.jpg) since the 2026-08-16/17 event has happened; nakara-
-   event.html itself is intentionally untouched here (still shows the
-   forward-looking 開催予定 listing — update it separately when ready).
-   Swap this board back to the idle "coming soon" state once the next
-   notice is ready — this board is for "これから", the ichipage series
-   (「この場所の1ページ。」) is for "これまで", so an event's fuller
-   record belongs in nakara-event.html's 開催記録 (archive) section
-   and/or the ichipage series as a memory.
+     - Photo + short recap: .hb-flyer (an <a href="[photo]"
+       data-flyer-trigger> wrapping the <img>, opens in the shared
+       #flyerModal lightbox via JS, falls back to opening the image
+       directly with JS disabled), plus an .hb-btn linking to the
+       event's own page (nakara-event.html) — see git history for
+       "上土の夏休み。"'s markup (2026-08-18 to 2026-08-26).
    The #event-teaser section (below, id="event-teaser") shows the same
-   .hb-frame/.hb-paper markup at a larger size via .event-card, with the
-   fuller write-up (.hb-body, reusing the idle state's class) instead of
-   this hero widget's compact .hb-caption — both link to the same
-   nakara-event.html and should reference the same posting.
+   .hb-frame/.hb-paper markup at a larger size via .event-card — both
+   this hero widget and that card should always show the same posting.
    ===================================================================== */
 .hero-bulletin{
   position:absolute; top:5.4rem; right:var(--gap); z-index:3;
@@ -986,12 +983,8 @@ section{position:relative;}
       <div class="hb-paper">
         <span class="hb-pin" aria-hidden="true">📌</span>
         <span class="hb-tag" data-i18n="heroBulletin.tag">ナカラ掲示板。</span>
-        <h3 class="hb-title" data-i18n="heroBulletin.title">上土の夏休み。</h3>
-        <a class="hb-flyer" href="images/agetsuchi-day-cup.jpg" target="_blank" rel="noopener" data-flyer-trigger>
-          <img src="images/agetsuchi-day-cup.jpg" alt="竹のコップでうれしそうに飲む女の子" loading="lazy" width="1280" height="960">
-        </a>
-        <p class="hb-caption" data-i18n="heroBulletin.caption">竹で遊んで、食べて、<br>学んだ2日間。</p>
-        <a href="nakara-event.html" class="hb-btn" data-i18n="heroBulletin.btn">イベント詳細を見る</a>
+        <h3 class="hb-title" data-i18n="heroBulletin.title">次の寄り道、<br>考え中。</h3>
+        <p class="hb-body" data-i18n="heroBulletin.note">また何か思いついたら、<br>ここに貼ります。</p>
       </div>
     </div>
   </div>
@@ -1118,12 +1111,8 @@ section{position:relative;}
         <div class="hb-paper">
           <span class="hb-pin" aria-hidden="true">📌</span>
           <span class="hb-tag" data-i18n="heroBulletin.tag">ナカラ掲示板。</span>
-          <h3 class="hb-title" data-i18n="heroBulletin.title">上土の夏休み。</h3>
-          <a class="hb-flyer" href="images/agetsuchi-day-cup.jpg" target="_blank" rel="noopener" data-flyer-trigger>
-            <img src="images/agetsuchi-day-cup.jpg" alt="竹のコップでうれしそうに飲む女の子" loading="lazy" width="1280" height="960">
-          </a>
-          <p class="hb-body" data-i18n="heroBulletin.desc">竹で遊んで、食べて、学んだ2日間。</p>
-          <a href="nakara-event.html" class="hb-btn" data-i18n="heroBulletin.btn">イベント詳細を見る</a>
+          <h3 class="hb-title" data-i18n="heroBulletin.title">次の寄り道、<br>考え中。</h3>
+          <p class="hb-body" data-i18n="heroBulletin.note">また何か思いついたら、<br>ここに貼ります。</p>
         </div>
       </div>
     </div>
@@ -1592,10 +1581,8 @@ section{position:relative;}
     'mascot.menuPick': 'Nakara-kun’s<br>Pick!',
     'mascot.reservePick': 'We can’t wait<br>to see you!',
     'heroBulletin.tag': 'Nakara Bulletin.',
-    'heroBulletin.title': 'Agetsuchi Summer Days.',
-    'heroBulletin.caption': 'Two days of bamboo —<br>playing, eating, learning.',
-    'heroBulletin.desc': 'Two days of bamboo — playing, eating, learning.',
-    'heroBulletin.btn': 'See Event Details'
+    'heroBulletin.title': 'Thinking about<br>the next detour.',
+    'heroBulletin.note': 'Once something comes to mind,<br>we’ll post it here.'
   };
 
   var langSwitch = document.getElementById('langSwitch');

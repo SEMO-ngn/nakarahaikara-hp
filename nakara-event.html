@@ -4,21 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>ナカラのイベント。| ナカラハイカラ。</title>
-<meta name="description" content="長野県松本市の居酒屋「ナカラハイカラ。」が贈るイベント情報。現在開催中：上土の夏休み。（2026年8月16日・17日）。">
+<meta name="description" content="長野県松本市の居酒屋「ナカラハイカラ。」のイベント情報。次の企画は、只今考え中です。決まり次第、ここでお知らせします。">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://nakarahaikara-hp.vercel.app/nakara-event.html">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="ナカラのイベント。| ナカラハイカラ。">
-<meta property="og:description" content="現在開催中：上土の夏休み。（2026年8月16日・17日）。竹で遊ぶ。竹を学ぶ。竹で食べる。">
-<meta property="og:image" content="images/agetsuchi-flyer.jpg">
+<meta property="og:description" content="次の企画は、只今考え中です。決まり次第、ここでお知らせします。">
+<meta property="og:image" content="images/hero-bg-izakaya-pixel.png">
 <meta property="og:url" content="https://nakarahaikara-hp.vercel.app/nakara-event.html">
 <meta property="og:site_name" content="ナカラハイカラ。">
 <meta property="og:locale" content="ja_JP">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ナカラのイベント。| ナカラハイカラ。">
-<meta name="twitter:description" content="現在開催中：上土の夏休み。（2026年8月16日・17日）。">
-<meta name="twitter:image" content="images/agetsuchi-flyer.jpg">
+<meta name="twitter:description" content="次の企画は、只今考え中です。決まり次第、ここでお知らせします。">
+<meta name="twitter:image" content="images/hero-bg-izakaya-pixel.png">
 
 <meta name="theme-color" content="#1a1210">
 <link rel="icon" href="images/favicon.ico" sizes="any">
@@ -362,6 +362,7 @@ section{position:relative;}
 .event-hero .scroll-cue{margin-top:2.6rem;}
 
 .bulletin-board{padding:2.4rem 1.8rem 2.2rem; max-width:640px; margin:0 auto;}
+.bulletin-idle{text-align:center; color:var(--cream-dim); font-size:1rem; line-height:2; padding:1.6rem 0;}
 .flyer-pin{max-width:300px; margin:0 auto 2.2rem; position:relative; transform:rotate(-2deg);}
 .flyer-pin img{width:100%; height:auto; display:block; border:6px solid var(--white); border-radius:4px; box-shadow:0 18px 34px rgba(0,0,0,.5), 0 0 0 1px rgba(0,0,0,.3); cursor:pointer; transition:transform .2s ease;}
 .flyer-pin:hover img{transform:scale(1.015);}
@@ -461,10 +462,9 @@ section{position:relative;}
   </div>
   <div class="wrap reveal is-visible">
     <a href="index.html" class="back-link">◄ <span data-i18n="event.back">ナカラハイカラ。トップへ</span></a>
-    <span class="kicker" data-i18n="event.kicker">【イベント開催】ナカラのイベント。</span>
-    <h1 class="event-hero-title" data-i18n="event.h1">竹で遊ぶ。<br>竹を学ぶ。<br>竹で食べる。</h1>
-    <p class="event-hero-sub" data-i18n="event.sub">「上土の夏休み。」8月16日(日)・17日(月)</p>
-    <p class="lead" data-i18n="event.lead">流しそうめんや竹工作など、<br>子どもから大人まで楽しめる体験イベントです。</p>
+    <span class="kicker" data-i18n="event.kicker">ナカラのイベント。</span>
+    <h1 class="event-hero-title" data-i18n="event.h1">次の寄り道、<br>考え中。</h1>
+    <p class="lead" data-i18n="event.lead">また何か思いついたら、<br>ここに貼ります。</p>
     <div class="scroll-cue">
       <span class="nakarakun-wrap"><img class="nakarakun nakarakun-sm" src="images/nakarakun-mascot.png" alt="ナカラくん" width="32" height="32" loading="lazy"></span>
       <span>SCROLL</span><span class="arrow">▼</span>
@@ -479,87 +479,17 @@ section{position:relative;}
   <div class="wrap">
     <div class="section-head reveal">
       <span class="kicker" data-i18n="event.upcomingKicker">開催予定</span>
-      <h2 class="h2" data-i18n="event.upcomingTitle">上土の夏休み。</h2>
-      <p class="section-lead" data-i18n="event.upcomingLead">竹をテーマにした、子どもから大人まで楽しめる体験イベント。</p>
+      <h2 class="h2" data-i18n="event.upcomingTitle">次の寄り道、<br>考え中。</h2>
     </div>
 
+    <!-- Idle state (current) — no event scheduled, so just the win box +
+         one line of copy. When the next event is decided, swap this back
+         to .flyer-pin + .info-list (date/time/place/price/content/map),
+         same as "上土の夏休み。" used from 2026-07-20 to 2026-08-26 —
+         see git history for that exact markup. -->
     <div class="bulletin-board win reveal">
       <span class="win-tab" data-i18n="event.winTab">EVENT</span>
-      <div class="flyer-pin">
-        <span class="pin" aria-hidden="true">📌</span>
-        <a href="images/agetsuchi-flyer.jpg" target="_blank" rel="noopener" data-flyer-trigger>
-          <img src="images/agetsuchi-flyer.jpg" alt="上土の夏休み。イベントチラシ" loading="lazy" width="1414" height="2000">
-        </a>
-      </div>
-      <ul class="info-list">
-        <li>
-          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span>
-          <div>
-            <span class="lbl" data-i18n="event.lblDate">DATE</span>
-            <span class="val" data-i18n="event.valDate">2026年8月16日（日）・17日（月）</span>
-            <span class="val-note" data-i18n="event.noteWeather">雨天決行／内容は変更になる場合があります</span>
-          </div>
-        </li>
-        <li>
-          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
-          <div>
-            <span class="lbl" data-i18n="event.lblTime">TIME</span>
-            <span class="val" data-i18n="event.valTime">16日(日) 10:00〜19:00（10:00スタート）<br>17日(月) 11:00〜19:00</span>
-          </div>
-        </li>
-        <li>
-          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
-          <div>
-            <span class="lbl" data-i18n="event.lblPlace">PLACE</span>
-            <span class="val" data-i18n="event.valPlace">上土ふれあいホール</span>
-            <span class="val-note" data-i18n="event.notePlace">松本市中心部・縄手通り／四柱神社のすぐ近く</span>
-
-            <div class="map-heading">
-              <span class="map-heading-tag" data-i18n="event.mapHeadingTag">📍 イベント会場</span>
-              <span class="map-heading-name" data-i18n="event.mapHeadingName">上土の夏休み。会場</span>
-            </div>
-            <div class="map-frame">
-              <iframe
-                src="https://www.google.com/maps?q=上土ふれあいホール+松本市&z=17&output=embed"
-                loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-                title="上土の夏休み。会場（上土ふれあいホール）地図"></iframe>
-            </div>
-            <a href="https://www.google.com/maps/dir/?api=1&destination=上土ふれあいホール+松本市" target="_blank" rel="noopener" class="btn btn-ghost map-open-btn">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              <span data-i18n="event.mapBtn">Googleマップでルート案内</span>
-            </a>
-
-            <div class="map-access-note">
-              <span class="map-access-title" data-i18n="event.mapAccessTitle">初めての方も安心！</span>
-              <ul class="map-access-list">
-                <li data-i18n="event.mapAccess1">縄手通・四柱神社から徒歩約2分</li>
-                <li data-i18n="event.mapAccess2">上土商店街駐車場から徒歩約3分</li>
-                <li data-i18n="event.mapAccess3">バス停「上土町」から徒歩約1分</li>
-              </ul>
-            </div>
-          </div>
-        </li>
-        <li>
-          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9 9.5a2.5 2.5 0 0 1 2.5-2.5h1a2.5 2.5 0 0 1 0 5h-1a2.5 2.5 0 0 0 0 5h1a2.5 2.5 0 0 0 2.5-2.5"/></svg></span>
-          <div>
-            <span class="lbl" data-i18n="event.lblPrice">PRICE</span>
-            <span class="val" data-i18n="event.valPrice">1家族500円（体験込み）</span>
-            <span class="val-note" data-i18n="event.notePrice">※飲食は別料金です</span>
-          </div>
-        </li>
-        <li>
-          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 11a8 8 0 0 1 16 0M4 11v7a2 2 0 0 0 2 2h1v-7H4zm14 0v9h1a2 2 0 0 0 2-2v-7h-3z"/></svg></span>
-          <div>
-            <span class="lbl" data-i18n="event.lblContent">CONTENT</span>
-            <span class="val" data-i18n="event.valContent">流しそうめん体験・竹コップづくり・竹で弓づくり・竹の活用ワークショップ<br>飲食エリア：ナカラ鉄板焼き・アルコール・ソフトドリンク</span>
-            <span class="val-note" data-i18n="event.noteSaturday">16日(日)10:00〜は、みんなで流しそうめん台をつくるところからスタート！自由研究にもおすすめです。</span>
-          </div>
-        </li>
-      </ul>
-
-      <p class="bulletin-note" data-i18n="event.noteFree">【予約不要・出入り自由】開催時間内であれば、好きな時間に来て、好きな時間まで自由に楽しめます。</p>
-
-      <p class="bulletin-credit" data-i18n="event.credit">主催：上土のなつやすみ。実行委員会<br>協力：ナカラハイカラ。／松本大学 観光ホスピタリティ学科／上土大正ロマンのまちづくり協議会／カフェ上土</p>
+      <p class="bulletin-idle" data-i18n="event.upcomingNote">また何か思いついたら、<br>ここに貼ります。</p>
     </div>
   </div>
 </section>
@@ -717,37 +647,13 @@ section{position:relative;}
     'nav.sub.event': "Nakara's Events",
     'nav.sub.album': 'A Page of This Place',
     'event.back': 'Back to Nakara Haikara',
-    'event.kicker': '[Event Underway] Nakara Events.',
-    'event.h1': 'Play with bamboo.<br>Learn about bamboo.<br>Eat with bamboo.',
-    'event.sub': '"Agetsuchi Summer Days." Aug 16 (Sun) & 17 (Mon)',
-    'event.lead': 'Bamboo water slides and craft-making —<br>a hands-on summer event for kids and adults alike.',
+    'event.kicker': 'Nakara Events.',
+    'event.h1': 'Thinking about<br>the next detour.',
+    'event.lead': 'Once something comes to mind,<br>we’ll post it here.',
     'event.upcomingKicker': 'Upcoming',
-    'event.upcomingTitle': 'Agetsuchi Summer Days.',
-    'event.upcomingLead': 'A bamboo-themed, hands-on event for the whole family.',
+    'event.upcomingTitle': 'Thinking about<br>the next detour.',
     'event.winTab': 'EVENT',
-    'event.lblDate': 'DATE',
-    'event.valDate': 'Sat, Aug 16 & Mon, Aug 17, 2026',
-    'event.noteWeather': 'Rain or shine — details subject to change',
-    'event.lblTime': 'TIME',
-    'event.valTime': 'Aug 16 (Sun) 10:00–19:00 (starts at 10:00)<br>Aug 17 (Mon) 11:00–19:00',
-    'event.lblPlace': 'PLACE',
-    'event.valPlace': 'Agetsuchi Fureai Hall',
-    'event.notePlace': 'Central Matsumoto, right by Nawate-dori & Yohashira Shrine',
-    'event.mapHeadingTag': '📍 Event Venue',
-    'event.mapHeadingName': '"Agetsuchi Summer Days." Venue',
-    'event.mapBtn': 'Get Directions on Google Maps',
-    'event.mapAccessTitle': 'First time here? No worries!',
-    'event.mapAccess1': '~2 min walk from Nawate-dori / Yohashira Shrine',
-    'event.mapAccess2': '~3 min walk from the Agetsuchi Shopping Street parking lot',
-    'event.mapAccess3': '~1 min walk from the "Agetsuchi-cho" bus stop',
-    'event.lblPrice': 'PRICE',
-    'event.valPrice': '¥500 per family (experience included)',
-    'event.notePrice': '※Food & drink priced separately',
-    'event.lblContent': 'CONTENT',
-    'event.valContent': 'Bamboo water slide, bamboo cup-making, bamboo bow-making, bamboo workshop<br>Food area: Nakara teppanyaki, alcohol, soft drinks',
-    'event.noteSaturday': 'Aug 16 (Sun) from 10:00, it all starts with everyone building the water slide together! Great for kids’ summer projects, too.',
-    'event.noteFree': '[No reservation needed — drop in anytime] Come and go freely within the hours above.',
-    'event.credit': 'Organized by: Agetsuchi Summer Committee<br>In cooperation with: Nakara Haikara. / Matsumoto University Tourism & Hospitality Dept. / Agetsuchi Taisho-Roman Neighborhood Association / Cafe Agetsuchi',
+    'event.upcomingNote': 'Once something comes to mind,<br>we’ll post it here.',
     'event.archiveKicker': 'Archive',
     'event.archiveTitle': 'Past<br>Events.',
     'event.archiveLead': 'Finished events stay here — nothing gets deleted.',
